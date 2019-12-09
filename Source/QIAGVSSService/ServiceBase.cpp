@@ -1003,7 +1003,7 @@ bool ServiceBase::LoadRestQueueConfig(const QJsonObject& obj)
 		return false;
 	}
 
-	m_mapResters.clear();
+	m_mapRestQueues.clear();
 
 	QStringList listKeys = obj.keys();
 

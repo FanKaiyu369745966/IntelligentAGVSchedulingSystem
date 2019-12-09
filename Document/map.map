@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Map>
+  <Background Scale="2.50" OffsetX="-3" OffsetY="74" />
+  <Track StartX="-30" StartY="-120" EndX="-30" EndY="-20" Arc="0" />
+  <Track StartX="300" StartY="-70" EndX="-120" EndY="-70" Arc="0" />
+  <Track StartX="-80" StartY="-130" EndX="-80" EndY="-30" Arc="0" />
+  <Track StartX="-160" StartY="-210" EndX="-160" EndY="-20" Arc="0" />
+  <Track StartX="0" StartY="40" EndX="-50" EndY="40" Arc="0" />
+  <Track StartX="-80" StartY="-70" EndX="-80" EndY="90" Arc="0" />
+  <Track StartX="-160" StartY="20" EndX="-160" EndY="90" Arc="0" />
+  <Track StartX="150" StartY="-500" EndX="150" EndY="-300" Arc="0" />
+  <Track StartX="150" StartY="-330" EndX="150" EndY="-170" Arc="0" />
+  <Track StartX="120" StartY="-500" EndX="120" EndY="-170" Arc="0" />
+  <Track StartX="90" StartY="-490" EndX="90" EndY="-170" Arc="0" />
+  <Track StartX="60" StartY="-500" EndX="60" EndY="-170" Arc="0" />
+  <Track StartX="30" StartY="-480" EndX="30" EndY="-250" Arc="0" />
+  <Track StartX="30" StartY="-310" EndX="30" EndY="-170" Arc="0" />
+  <Track StartX="270" StartY="-350" EndX="270" EndY="-150" Arc="0" />
+  <Track StartX="-160" StartY="-40" EndX="-160" EndY="60" Arc="0" />
+  <Track StartX="390" StartY="-230" EndX="-220" EndY="-230" Arc="0" />
+  <Track StartX="-160" StartY="-390" EndX="-160" EndY="-180" Arc="0" />
+  <Track StartX="270" StartY="-210" EndX="270" EndY="10" Arc="0" />
+  <Track StartX="210" StartY="-120" EndX="210" EndY="-20" Arc="0" />
+  <Track StartX="170" StartY="-120" EndX="170" EndY="-20" Arc="0" />
+  <Track StartX="130" StartY="-120" EndX="130" EndY="-20" Arc="0" />
+  <Track StartX="90" StartY="-120" EndX="90" EndY="-20" Arc="0" />
+  <Track StartX="50" StartY="-120" EndX="50" EndY="-20" Arc="0" />
+  <Track StartX="10" StartY="-120" EndX="10" EndY="-70" Arc="0" />
+  <Track StartX="10" StartY="-110" EndX="10" EndY="-20" Arc="0" />
+  <Track StartX="-50" StartY="40" EndX="-210" EndY="40" Arc="0" />
+  <RFID No="1" X="50" Y="-30" />
+  <RFID No="101" X="-50" Y="40" />
+  <RFID No="111" X="-80" Y="70" />
+  <RFID No="121" X="-60" Y="-70" />
+  <RFID No="122" X="-10" Y="-70" />
+  <RFID No="2" X="90" Y="-30" />
+  <RFID No="201" X="30" Y="-290" />
+  <RFID No="209" X="50" Y="-230" />
+  <RFID No="21" X="-30" Y="-30" />
+  <RFID No="211" X="60" Y="-290" />
+  <RFID No="219" X="80" Y="-230" />
+  <RFID No="22" X="10" Y="-30" />
+  <RFID No="221" X="90" Y="-290" />
+  <RFID No="229" X="110" Y="-230" />
+  <RFID No="231" X="120" Y="-290" />
+  <RFID No="239" X="140" Y="-230" />
+  <RFID No="241" X="150" Y="-290" />
+  <RFID No="249" X="200" Y="-230" />
+  <RFID No="3" X="130" Y="-30" />
+  <RFID No="31" X="250" Y="-230" />
+  <RFID No="32" X="270" Y="-90" />
+  <RFID No="33" X="-90" Y="-70" />
+  <RFID No="34" X="-140" Y="40" />
+  <RFID No="35" X="-160" Y="-210" />
+  <RFID No="36" X="30" Y="-210" />
+  <RFID No="37" X="60" Y="-210" />
+  <RFID No="38" X="90" Y="-210" />
+  <RFID No="39" X="120" Y="-210" />
+  <RFID No="4" X="170" Y="-30" />
+  <RFID No="40" X="150" Y="-210" />
+  <RFID No="41" X="210" Y="-90" />
+  <RFID No="42" X="170" Y="-90" />
+  <RFID No="43" X="130" Y="-90" />
+  <RFID No="44" X="90" Y="-90" />
+  <RFID No="45" X="50" Y="-90" />
+  <RFID No="46" X="10" Y="-90" />
+  <RFID No="47" X="-30" Y="-90" />
+  <RFID No="5" X="210" Y="-30" />
+  <RFID No="501" X="330" Y="-230" />
+  <RFID No="502" X="270" Y="-10" />
+  <RFID No="503" X="-190" Y="40" />
+  <RFID No="504" X="-160" Y="-280" />
+  <RFID No="601" X="-30" Y="-110" />
+  <RFID No="602" X="10" Y="-110" />
+  <RFID No="603" X="50" Y="-110" />
+  <RFID No="604" X="90" Y="-110" />
+  <RFID No="605" X="130" Y="-110" />
+  <RFID No="606" X="170" Y="-110" />
+  <RFID No="607" X="210" Y="-110" />
+  <RFID No="608" X="-110" Y="-70" />
+  <RFID No="609" X="30" Y="-180" />
+  <RFID No="610" X="60" Y="-180" />
+  <RFID No="611" X="90" Y="-180" />
+  <RFID No="612" X="120" Y="-180" />
+  <RFID No="613" X="150" Y="-180" />
+  <RFID No="701" X="30" Y="-70" />
+  <RFID No="702" X="70" Y="-70" />
+  <RFID No="703" X="110" Y="-70" />
+  <RFID No="704" X="150" Y="-70" />
+  <RFID No="705" X="190" Y="-70" />
+  <Station No="1" Location="101" Name="托盘库" X="-40" Y="60" />
+  <Station No="2" Location="21" Name="毛坯库" X="-30" Y="0" />
+  <Station No="3" Location="22" Name="成品库" X="10" Y="0" />
+  <Station No="4" Location="201" Name="CNC上料口" X="10" Y="-270" />
+  <Station No="5" Location="211" Name="滚齿机下料口" X="50" Y="-270" />
+  <Station No="6" Location="221" Name="卸货点3" X="80" Y="-270" />
+  <Station No="7" Location="231" Name="卸货点4" X="110" Y="-270" />
+  <Station No="8" Location="241" Name="卸货点5" X="140" Y="-270" />
+  <Rest No="1" Location="1" X="50" Y="0" />
+  <Rest No="2" Location="2" X="90" Y="0" />
+  <Rest No="3" Location="3" X="130" Y="0" />
+  <Rest No="4" Location="4" X="170" Y="0" />
+  <Rest No="5" Location="5" X="210" Y="0" />
+  <AGV No="2" Type="叉车AGV" Client="1" IP="192.168.1.201" Port="0" LocalIP="" LocalPort="0"/>
+  <AGV No="3" Type="叉车AGV" Client="1" IP="192.168.1.202" Port="0" LocalIP="" LocalPort="0"/>
+  <AGV No="4" Type="叉车AGV" Client="1" IP="192.168.1.203" Port="0" LocalIP="" LocalPort="0"/>
+  <AGV No="5" Type="叉车AGV" Client="1" IP="192.168.1.204" Port="0" LocalIP="" LocalPort="0"/>
+  <AGV No="6" Type="叉车AGV" Client="1" IP="192.168.1.205" Port="0" LocalIP="" LocalPort="0"/>
+  <AGVType Name="叉车AGV" Brand="哈尔滨博乐恩" Version="BLN-LD1000" MaxSpeed="48" MaxWeight="1000" Protocol="0">
+    <Action No="1" Name="上料"/>
+	<Action No="2" Name="停靠"/>
+	<Action No="3" Name="下料"/>
+    <Action No="4" Name="结束"/>
+  </AGVType>
+  <RestQueue No="1">
+	<Rester No="1"/>
+	<Rester No="2"/>
+	<Rester No="3"/>
+	<Rester No="4"/>
+	<Rester No="5"/>
+  </RestQueue>
+</Map>

@@ -8,10 +8,10 @@ AgvType::AgvType(const QString& strName, const std::shared_ptr<ProtocolBase>& pr
 	, m_fMaxSpeed(fMaxSpeed)
 	, m_fMaxWeight(fMaxWeight)
 	, m_pProtocol(protocol)
-	, m_listName(new QString[UCHAR_MAX + 1])
+	, m_listName(new QString[UCHAR_MAX])
 {
 	m_listName[0] = QString::fromLocal8Bit("无动作");
-	m_listName[UCHAR_MAX] = QString::fromLocal8Bit("移动");
+	m_listName[UCHAR_MAX - 1] = QString::fromLocal8Bit("移动");
 }
 
 AgvType::AgvType(const AgvType& type)
@@ -23,7 +23,7 @@ AgvType::AgvType(const AgvType& type)
 	m_fMaxWeight = type.m_fMaxWeight;
 	m_pProtocol = type.m_pProtocol;
 
-	for (int i = 0; i <= UCHAR_MAX; ++i)
+	for (int i = 0; i < UCHAR_MAX; ++i)
 	{
 		m_listName[i] = type.m_listName[i];
 	}
@@ -53,7 +53,7 @@ void AgvType::operator=(const AgvType& type)
 	m_fMaxWeight = type.m_fMaxWeight;
 	m_pProtocol = type.m_pProtocol;
 
-	for (int i = 0; i <= UCHAR_MAX; ++i)
+	for (int i = 0; i < UCHAR_MAX; ++i)
 	{
 		m_listName[i] = type.m_listName[i];
 	}
@@ -92,7 +92,7 @@ QString AgvType::GetActionName(const AgvAction& action) const
 
 AgvAction AgvType::GetActionCode(const QString& name) const
 {
-	for (int i = 0; i <= UCHAR_MAX; ++i)
+	for (int i = 0; i < UCHAR_MAX; ++i)
 	{
 		if (m_listName[i] == name)
 		{
@@ -115,6 +115,14 @@ void AgvType::LoadNameList(const QJsonObject& Json)
 	for (int i = 0; i < listKeys.size(); ++i)
 	{
 		QString key = listKeys.at(i);
+
+		int code = key.toInt();
+
+		if (code >= UCHAR_MAX - 1 || code <= 0)
+		{
+			continue;
+		}
+
 		m_listName[key.toInt()] = Json.value(key).toString();;
 	}
 
