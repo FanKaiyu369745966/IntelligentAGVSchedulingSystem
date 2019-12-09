@@ -892,8 +892,6 @@ CmdError AgvBase::MovePlc(const rfid_t& location)
 		command[index++] = static_cast<unsigned char>((location >> 8 * (i - 1)) & 0xFF);
 	}
 
-	assert(len == index);
-
 	return SentCommand(command.get(), len);
 }
 
@@ -985,8 +983,6 @@ CmdError AgvBase::ActionControlPlc(const AgvAction& action)
 		command[index++] = static_cast<unsigned char>((act >> 8 * (i - 1)) & 0xFF);
 	}
 
-	assert(len == index);
-
 	return SentCommand(command.get(), len);
 }
 
@@ -1059,8 +1055,6 @@ CmdError AgvBase::TrafficControlPlc(const unsigned char& cmd)
 	}
 
 	command[index++] = cmd;
-
-	assert(len == index);
 
 	return SentCommand(command.get(), len);
 }
