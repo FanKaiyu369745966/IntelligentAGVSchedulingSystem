@@ -519,7 +519,9 @@ CmdError AgvBase::Move(const rfid_t& location)
 		return CmdError::Cmd_LocationError;
 	}
 
-	if (m_attribute.GetAction() != AgvAction::Act_None && m_attribute.GetExecution() != AgvExecution::Act_Fin)
+	AgvAction act = m_attribute.GetAction();
+
+	if ((act != AgvAction::Act_None && act != AgvAction::Act_Move) && m_attribute.GetExecution() != AgvExecution::Act_Fin)
 	{
 		// 有动作 并且 动作未完成
 		return CmdError::Cmd_ActionError;
