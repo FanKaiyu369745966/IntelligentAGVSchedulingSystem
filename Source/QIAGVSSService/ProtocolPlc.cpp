@@ -1,9 +1,9 @@
 ﻿#include "ProtocolPlc.h"
 #include <QDebug>
 
-const unsigned char ProtocolPlc::g_head = 0x8E;
-const unsigned char ProtocolPlc::g_tail = 0x8F;
-const unsigned char ProtocolPlc::g_encode = 0xA1;
+const unsigned char ProtocolPlc::g_head = 0xBA;
+const unsigned char ProtocolPlc::g_tail = 0xBE;
+const unsigned char ProtocolPlc::g_encode = 0xB0;
 
 ProtocolPlc::ProtocolPlc()
 	: ProtocolBase(ProtocolType::Protocol_Plc)
