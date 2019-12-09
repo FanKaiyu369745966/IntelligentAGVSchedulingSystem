@@ -1649,6 +1649,8 @@ std::list<int> Service::GetFreeAGVList(const OrderMap& _map)
 			head = true;
 		}
 
+		//head = true;
+
 		AgvBattery power = attr.GetBattery();	/*!< AGV电量 */
 
 		if (power == AgvBattery::Power_Off)

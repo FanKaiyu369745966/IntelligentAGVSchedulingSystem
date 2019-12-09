@@ -16,7 +16,7 @@ AgvBase::AgvBase(const shared_ptr<AgvType>& type, const id_t& id, const bool& bC
 	QObject::connect(&m_conn, &SlaveConnect::signalConnected, this, &AgvBase::slotConnected);
 	QObject::connect(&m_conn, &SlaveConnect::signalConnectionBreak, this, &AgvBase::slotConnectionBreak);
 	QObject::connect(&m_conn, &SlaveConnect::signalProcess, this, &AgvBase::slotProcess);
-	QObject::connect(this, &AgvBase::signalWriteData, &m_conn, static_cast<bool (SlaveConnect::*)(const char*, const qint64&) const>(&SlaveConnect::WriteData));
+	QObject::connect(this, &AgvBase::signalWriteData, &m_conn, static_cast<bool (SlaveConnect::*)(QByteArray) const>(&SlaveConnect::WriteData));
 
 	moveToThread(&m_thread);
 	m_thread.start();
@@ -386,7 +386,7 @@ void AgvBase::slotSendPacket()
 
 	for (ByteArrayList::const_iterator it = m_listSend.begin(); it != m_listSend.end(); it = m_listSend.erase(it))
 	{
-		emit signalWriteData(it->data(), it->size());
+		emit signalWriteData(it->toQByteAarray());
 
 		QThread::msleep(100);
 	}
@@ -1061,25 +1061,25 @@ CmdError AgvBase::TrafficControlPlc(const unsigned char& cmd)
 
 CmdError AgvBase::SentCommand(const unsigned char* data, const int& maxSize)
 {
-	if (m_attribute.GetMode() != AgvMode::Mode_Auto)
-	{
-		return CmdError::Cmd_ModeError;
-	}
+	//if (m_attribute.GetMode() != AgvMode::Mode_Auto)
+	//{
+	//	return CmdError::Cmd_ModeError;
+	//}
 
-	if (m_attribute.m_battery <= static_cast<AgvAttr::battery_t>(AgvBattery::Power_Off))
-	{
-		return CmdError::Cmd_PowerError;
-	}
+	//if (m_attribute.m_battery <= static_cast<AgvAttr::battery_t>(AgvBattery::Power_Off))
+	//{
+	//	return CmdError::Cmd_PowerError;
+	//}
 
 	return SendData(data, maxSize);
 }
 
 CmdError AgvBase::SendData(const unsigned char* data, const int& maxSize)
 {
-	if (m_conn.IsConnected() == false)
-	{
-		return CmdError::Cmd_NetError;
-	}
+	//if (m_conn.IsConnected() == false)
+	//{
+	//	return CmdError::Cmd_NetError;
+	//}
 
 	int index = 0;
 	int len = sizeof(id_t) + maxSize;

@@ -104,7 +104,7 @@ public slots:
 	 * @return bool 发送成功返回true,否则返回false
 	*/
 	bool WriteData(const char* data, const qint64& maxSize) const;
-	bool WriteData(const QByteArray& data) const;
+	bool WriteData(QByteArray data) const;
 	bool WriteData(const char* data) const;
 
 	/*!

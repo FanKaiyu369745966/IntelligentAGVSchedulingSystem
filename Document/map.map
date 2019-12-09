@@ -106,7 +106,7 @@
   <AGV No="4" Type="叉车AGV" Client="1" IP="192.168.1.203" Port="0" LocalIP="" LocalPort="0"/>
   <AGV No="5" Type="叉车AGV" Client="1" IP="192.168.1.204" Port="0" LocalIP="" LocalPort="0"/>
   <AGV No="6" Type="叉车AGV" Client="1" IP="192.168.1.205" Port="0" LocalIP="" LocalPort="0"/>
-  <AGVType Name="叉车AGV" Brand="哈尔滨博乐恩" Version="BLN-LD1000" MaxSpeed="48" MaxWeight="1000" Protocol="0">
+  <AGVType Name="叉车AGV" Brand="哈尔滨博乐恩" Version="BLN-LD1000" MaxSpeed="48" MaxWeight="1000" Protocol="1">
     <Action No="1" Name="上料"/>
 	<Action No="2" Name="停靠"/>
 	<Action No="3" Name="下料"/>

@@ -47,6 +47,14 @@ ByteArray ProtocolPlc::Create(const unsigned char* data, const int& maxSize) con
 	// 存储报文尾
 	source[index++] = g_tail;
 
+	//QString _debug = "Create Packet:";
+	//for (int i = 0; i < index; ++i)
+	//{
+	//	_debug += QString::fromLocal8Bit("%1 ").arg(*(source.get() + i) & 0xFF, 2, 16, QLatin1Char('0'));
+	//}
+
+	//qDebug() << _debug << endl;
+
 	return Encoding(source.get(), index);
 }
 
