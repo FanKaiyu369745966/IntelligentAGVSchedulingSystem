@@ -1,0 +1,81 @@
+Param[in] 		仅后台使用的字段
+Param[out] 		仅前台使用的字段
+Param[in&out]	前后台公用的字段
+
+DataBase:AGVDB
+
+Table:AGVDB_INFO_AGVTYPE
+Param[in&out]	:Name			(string)	:类型名称
+Param[in&out]	:Brand			(string)	:品牌
+Param[in&out]	:Version		(string)	:型号
+Param[in&out]	:MaxSpeed		(float)		:最大速度(min/m)
+Param[in&out]	:MaxWeight		(float)		:最大载重量(kg)
+Param[in&out]	:Protocol		(int)		:通信协议类型
+Param[in&out]	:Action			(string)	:JSON字符串,储存一组JSONObject的值{"动作码":"动作名",...},用以储存该类型AGV动作码对应的动作名称
+
+Table:AGVDB_INFO_AGV
+Param[in&out]	:ID				(int)		:AGV编号(键值)
+Param[in&out]	:Type			(string)	:AGV类型名称
+Param[in&out]	:Client			(int)		:AGV网络模式(bool)为true时为客户端模式，否则为服务端模式
+Param[in&out]	:IP				(string)	:AGV IP地址
+Param[in&out]	:Port			(int)		:AGV 端口
+Param[in&out]	:LocalIP		(string)	:连接AGV时本机使用的IP地址
+Param[in&out]	:LocalPort		(int)		:连接AGV时本机使用的端口
+Param[out]		:Connection		(string)	:AGV的连接状态
+Param[in&out]	:Cur			(int)		:AGV的当前地标卡编号
+Param[in&out]	:Target			(int)		:AGV移动终点的地标卡编号
+Param[in]		:Status			(int)		:AGV的状态
+Param[out]		:StatusInfo		(string)	:AGV的状态信息
+Param[in&out]	:Battery		(int)		:AGV的电量信息
+Param[in&out]	:Speed			(int)		:AGV的速度信息
+Param[in]		:Cargo			(int)		:AGV的载货数量
+Param[out]		:CargoInfo		(string)	:AGV的载货信息
+Param[in]		:Action			(int)		:AGV的动作信息
+Param[in]		:ActionStatus	(int)		:AGV的动作状态信息
+Param[out]		:ActionInfo		(string)	:AGV的动作信息
+Param[in]		:ActionTime		(int)		:AGV的动作执行状态
+Param[in]		:Error			(int)		:AGV的异常信息
+Param[out]		:ErrorInfo		(string)	:AGV的异常信息
+
+Table:AGVDB_INFO_CHARGE
+Param[in&out]	:ID				(int)		:充电站编号(键值)
+Param[in&out]	:Location		(int)		:充电站坐标(RFID地标卡编号)(非0的值不可重复)
+Param[in&out]	:Name			(string)	:充电站名称(非空的值不可重复)
+Param[out]		:X				(int)		:充电站图标X坐标
+Param[out]		:Y				(int)		:充电站图标Y坐标
+
+Table:AGVDB_INFO_REST
+Param[in&out]	:ID				(int)		:待机站编号(键值)
+Param[in&out]	:Location		(int)		:待机站坐标(RFID地标卡编号)
+Param[in&out]	:Name			(string)	:待机站名称(非空的值不可重复)
+Param[in&out]	:Lock			(string)	:JSON字符串,储存一组JSONArray的值({[1,2]}),用以表示待机站范围内锁定的RFID卡
+Param[out]		:X				(int)		:待机站图标X坐标
+Param[out]		:Y				(int)		:待机站图标Y坐标
+
+Table:AGVDB_INFO_RESTQUEUE
+Param[in&out]	:ID				(int)		:待机队列编号(键值)
+Param[in&out]	:Queue			(string)	:JSON字符串,储存一组JSONArray的值({[1,2]}),用以标识队列内的待机站成员编号。(成员编号不能重复)
+
+Table:AGVDB_INFO_TRAFFIC
+Param[in&out]	:ID				(int)		:交通管制RFID地标卡编号
+Param[in&out]	:Lock			(string)	:JSON字符串,储存一组JSONArray的值({[1,2]}),用以表示管制点范围内锁定的RFID卡(不能包含管制点,且成员不能重复)
+Param[in&out]	:Compare		(string)	:JSON字符串,储存一组JSONArray的值({[1,2]}),用以表示交通管制时与管制点交互的其他管制RFID卡(不能包含管制点,且成员不能重复)
+
+Table:AGVDB_INFO_WORK (原AGVDB_INFO_STATION)
+Param[in&out]	:ID				(int)		:工作站编号(键值)
+Param[in&out]	:Location		(int)		:工作站坐标(RFID地标卡编号)(非0的值不可重复)
+Param[in&out]	:Name			(string)	:工作站名称(非空的值不可重复)
+Param[out]		:X				(int)		:工作站图标X坐标
+Param[out]		:Y				(int)		:工作站图标Y坐标
+
+Table:AGVDB_INFO_CALLER
+Param[in&out]	:ID				(int)		:呼叫器编号(键值)
+Param[in&out]	:Address		(string)	:呼叫器MAC地址信息
+Param[in&out]	:Station		(int)		:呼叫器绑定的工作站编号(非0的值不可重复)
+Param[in&out]	:Enable			(int)		:呼叫器启用状态标识(bool)为true时启用,为false时禁用
+Param[in]		:Scream			(int)		:呼叫器急停信号状态
+Param[out]		:ScreamInfo		(string)	:呼叫器急停信号状态
+Param[in]		:Call			(int)		:呼叫器呼叫信号状态
+Param[out]		:CallInfo		(string)	:呼叫器呼叫信号状态
+Param[in]		:Cancel			(int)		:呼叫器取消信号状态
+Param[out]		:CancelInfo		(string)	:呼叫器取消信号状态

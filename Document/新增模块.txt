@@ -1,0 +1,185 @@
+@update 2019-11-06
+1、新增AGV类型创建
+其属性如下
+(1) 类型名称 String
+此属性不能为空，不能重复
+(2) 品牌 String
+(3) 型号 String
+(4) 最大速度 float min/m
+此属性不可为空,也不可以为0
+(5) 最大载重量 float kg
+(6) 协议类型 int
+0 STM32
+1 PLC
+(7) 动作名称列表
+动作码(1-253)对应的名称，名称不可以重复，但是可以为空
+
+JSON格式
+“AGVType”:
+{
+	“类型名称”:
+	{
+		"Brand":"品牌"，
+		"version":"型号",
+		"MaxSpeed":float
+		"MaxWeight":float
+		"Protocol":int
+		"Action":
+		{
+			"1":"动作名",
+			...
+		}
+	},
+	...
+}
+
+2、新增待机队列创建
+其属性如下
+(1) 队列编号 int
+此属性不可为0
+(2) 队列成员列表
+待机站的编号，按照由队列首至尾的顺序排列
+
+JSON格式
+“RestQueue”:
+{
+	"编号":
+	[
+		1,2,...
+	],
+	...
+}
+
+3、修改AGV创建
+其属性如下
+(1) 编号 int
+此属性不可为0,不能重复
+(2) 类型名称 String
+根据新增的AGV类型选择
+(3) AGV的网络类型 bool
+true 客户端类型
+flase 服务端类型
+(3) IP地址 String
+此属性不可为空
+(4) 端口 int
+当网络类型为服务端时此属性不可为0
+(5) 本地IP
+(6) 本地端口
+
+JSON格式
+"AGV":
+{
+	"编号":
+	{
+		"Type":"类型",
+		"Client":bool,
+		"IP":String,
+		"Port"int,
+		"LocalIP":String,
+		"LocalPort":int
+	},
+	...
+}
+
+4、修改工作站创建
+其属性如下
+(1) 编号 int
+此属性不可为0,不可重复
+(2) 名称 String
+此属性不可重复,默认值为工作站+编号:如"工作站1"
+(3) 坐标 int
+此属性不可为0
+() 启用标识 bool
+默认值为true
+true 启用
+false 未启用
+
+JSON格式
+"WorkStation":
+{
+	"编号":
+	{
+		"Name":String,
+		"Location":int,
+		"Use":bool
+	}
+	,...
+}
+
+5、修改待机站创建
+(1) 编号 int
+此属性不可为0,不可重复
+(2) 名称 String
+此属性不可重复,默认值为工作站+编号:如"待机站1"
+(3) 坐标 int
+此属性不可为0
+
+JSON格式
+"RestStation":
+{
+	"编号":
+	{
+		"Name":String,
+		"Location":int,
+		“Lock”:[1,2],
+	}
+	,...
+}
+
+6、新增充电站创建
+(1) 编号 int
+此属性不可为0,不可重复
+(2) 名称 String
+此属性不可重复,默认值为工作站+编号:如"充电站1"
+(3) 坐标 int
+此属性不可为0
+
+JSON格式
+"ChargeStation":
+{
+	"编号":
+	{
+		"Name":String,
+		"Location":int,
+	}
+	,...
+}
+
+7、 修改交通管制点创建
+其属性如下
+(1) 管制点 int
+此属性不可为0
+(2) 锁定区域
+在此区域内地标卡上存在AGV，管制点AGV不可放行
+列表可以没有成员，但列表内成员不可为0，不可重复
+(3) 比对管制点列表
+比对管制点锁定区域存在AGV,管制点AGV不可放行
+与比对管制点比对时间，先到先行
+列表可以没有成员，但列表内成员不可为0,不可重复
+
+JSON格式
+“Traffic”
+{
+	“管制点”:
+	{
+		"Lock":
+		[
+			1,2,...
+		]
+		,
+		“Compare”:
+		{
+			3,4,...
+		}
+	}
+}
+@update 2019-11-15
+JSON格式
+“ZigbeeCaller”
+{
+	"编号"：{
+	“Address”:String MAC地址，
+	"Station":int 绑定工作站编号
+	“Enable”:bool 启用标识
+	}
+}

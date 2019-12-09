@@ -1,0 +1,6 @@
+动态库2015.9.21相对2014.5.21更改：
+1、增加实时发送文本接口：User_RealtimeSendText(int CardNum,int x,int y,int iWidth,int iHeight,char *strText,User_FontSet	*pFontInfo);
+2、增加动态加载配置文件INI接口:User_ReloadIniFile(char *strEQ2008_Dll_Set_Path);
+
+2016.11.23
+3、支持WIFI卡开发

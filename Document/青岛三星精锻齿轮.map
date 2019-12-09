@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Map>
+    <Background Scale="1.90" OffsetX="130" OffsetY="-26" />
+    <Track StartX="50" StartY="10" EndX="70" EndY="-10" Arc="1" />
+    <Track StartX="50" StartY="-50" EndX="70" EndY="-30" Arc="1" />
+    <Track StartX="70" StartY="-10" EndX="70" EndY="70" Arc="0" />
+    <Track StartX="-130" StartY="10" EndX="-150" EndY="-10" Arc="1" />
+    <Track StartX="-130" StartY="-50" EndX="-150" EndY="-30" Arc="1" />
+    <Track StartX="20" StartY="10" EndX="0" EndY="30" Arc="1" />
+    <Track StartX="0" StartY="70" EndX="0" EndY="30" Arc="0" />
+    <Track StartX="50" StartY="10" EndX="-130" EndY="10" Arc="0" />
+    <Track StartX="50" StartY="-50" EndX="-130" EndY="-50" Arc="0" />
+    <Track StartX="-130" StartY="10" EndX="-150" EndY="30" Arc="1" />
+    <Track StartX="-170" StartY="50" EndX="-150" EndY="30" Arc="1" />
+    <Track StartX="-170" StartY="50" EndX="-190" EndY="70" Arc="1" />
+    <Track StartX="-190" StartY="130" EndX="-190" EndY="70" Arc="0" />
+    <Track StartX="-70" StartY="-50" EndX="-50" EndY="-70" Arc="1" />
+    <Track StartX="-50" StartY="-70" EndX="-50" EndY="-120" Arc="0" />
+    <Track StartX="-70" StartY="-100" EndX="-50" EndY="-80" Arc="1" />
+    <Track StartX="-30" StartY="-120" EndX="-50" EndY="-100" Arc="1" />
+    <Track StartX="-70" StartY="-160" EndX="-50" EndY="-140" Arc="1" />
+    <Track StartX="-30" StartY="-160" EndX="-50" EndY="-140" Arc="1" />
+    <Track StartX="-70" StartY="-100" EndX="-130" EndY="-100" Arc="0" />
+    <Track StartX="-70" StartY="-160" EndX="-130" EndY="-160" Arc="0" />
+    <Track StartX="-30" StartY="-120" EndX="30" EndY="-120" Arc="0" />
+    <Track StartX="-30" StartY="-160" EndX="30" EndY="-160" Arc="0" />
+    <Track StartX="-50" StartY="-120" EndX="-50" EndY="-140" Arc="0" />
+    <Track StartX="-150" StartY="-10" EndX="-150" EndY="-30" Arc="1" />
+    <Track StartX="70" StartY="-10" EndX="70" EndY="-30" Arc="1" />
+    <RFID No="1" X="-20" Y="10" />
+    <RFID No="2" X="-40" Y="10" />
+    <RFID No="3" X="-60" Y="10" />
+    <RFID No="4" X="-110" Y="10" />
+    <RFID No="5" X="-190" Y="90" />
+    <RFID No="6" X="70" Y="50" />
+    <RFID No="7" X="-90" Y="-100" />
+    <RFID No="8" X="-90" Y="-160" />
+    <RFID No="9" X="-10" Y="-120" />
+    <RFID No="10" X="-10" Y="-160" />
+    <RFID No="11" X="0" Y="40" />
+    <RFID No="12" X="30" Y="10" />
+    <RFID No="13" X="-130" Y="10" />
+    <RFID No="14" X="-50" Y="-80" />
+    <RFID No="15" X="-50" Y="-100" />
+    <RFID No="16" X="-50" Y="-130" />
+    <RFID No="17" X="70" Y="-10" />
+    <RFID No="18" X="-80" Y="-50" />
+    <RFID No="19" X="-70" Y="10" />
+    <RFID No="20" X="-100" Y="10" />
+    <RFID No="21" X="-120" Y="-50" />
+    <RFID No="22" X="-90" Y="-50" />
+    <RFID No="23" X="-40" Y="-50" />
+    <RFID No="24" X="40" Y="-50" />
+    <RFID No="25" X="70" Y="10" />
+    <RFID No="26" X="70" Y="40" />
+    <Station No="1" Location="2" Name="托盘库" X="-40" Y="-10" />
+    <Station No="2" Location="1" Name="毛坯库" X="-20" Y="-10" />
+    <Station No="3" Location="3" Name="成品库" X="-60" Y="-10" />
+    <Station No="4" Location="4" Name="CNC上料口" X="-110" Y="30" />
+    <Station No="5" Location="6" Name="滚齿机下料口" X="90" Y="50" />
+    <Station No="6" Location="5" Name="热处理车间" X="-170" Y="90" />
+    <Station No="7" Location="7" Name="磨齿机1上料口" X="-90" Y="-80" />
+    <Station No="8" Location="8" Name="磨齿机1下料口" X="-90" Y="-140" />
+    <Station No="9" Location="9" Name="磨齿机2上料口" X="-10" Y="-100" />
+    <Station No="10" Location="10" Name="磨齿机2下料口" X="-10" Y="-140" />
+    <Charger No="1" Location="11" Name="充电站1" X="20" Y="40" />
+    <AGV No="1" Type="顶升式" Client="1" IP="192.168.1.3" Port="0" LocalIP="" LocalPort="0" />
+    <Caller No="1" Bind="1" Address="0001" Enable="1" X="-40" Y="-30" />
+    <Caller No="2" Bind="2" Address="0002" Enable="1" X="-20" Y="-30" />
+    <Caller No="3" Bind="4" Address="0003" Enable="1" X="-130" Y="30"/>
+    <Caller No="4" Bind="5" Address="0004" Enable="1" X="110" Y="50" />
+    <Caller No="5" Bind="7" Address="0005" Enable="1" X="-110" Y="-80" />
+    <Caller No="6" Bind="8" Address="0006" Enable="1" X="-110" Y="-140" />
+    <Caller No="7" Bind="9" Address="0007" Enable="1" X="10" Y="-100"/>
+    <Caller No="8" Bind="10" Address="0008" Enable="1" X="10" Y="-140"/>
+	<AGVType Name="顶升式" Brand="哈尔滨博乐恩" Version="BLN_LD1000" MaxSpeed="48" MaxWeight="1000" Protocol="0">
+		<Action No="1" Name="上料"/>
+		<Action No="2" Name="下料"/>
+	</AGVType>
+</Map>

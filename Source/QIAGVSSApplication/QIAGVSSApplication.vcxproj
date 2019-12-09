@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\QIAGVSSService\AgvAttribute.h" />
+    <ClInclude Include="..\QIAGVSSService\ByteArray.h" />
+    <ClInclude Include="..\QIAGVSSService\CallerAttribute.h" />
+    <ClInclude Include="..\QIAGVSSService\CallerBase.h" />
+    <ClInclude Include="..\QIAGVSSService\ChainTable.h" />
+    <ClInclude Include="..\QIAGVSSService\ChargeStation.h" />
+    <ClInclude Include="..\QIAGVSSService\EQLed.h" />
+    <ClInclude Include="..\QIAGVSSService\LedBase.h" />
+    <ClInclude Include="..\QIAGVSSService\Protocol.h" />
+    <ClInclude Include="..\QIAGVSSService\ProtocolBase.h" />
+    <ClInclude Include="..\QIAGVSSService\ProtocolPlc.h" />
+    <ClInclude Include="..\QIAGVSSService\ProtocolStm32.h" />
+    <ClInclude Include="..\QIAGVSSService\ProtocolZigbee.h" />
+    <ClInclude Include="..\QIAGVSSService\RestStation.h" />
+    <ClInclude Include="..\QIAGVSSService\res\led\EQ2008_DataStruct.h" />
+    <ClInclude Include="..\QIAGVSSService\res\led\EQ2008_Dll.h" />
+    <ClInclude Include="..\QIAGVSSService\RfidBase.h" />
+    <ClInclude Include="ui_TaskForm.h" />
+    <ClInclude Include="ui_UserForm.h" />
+    <QtMoc Include="..\QIAGVSSService\Service.h" />
+    <ClInclude Include="..\QIAGVSSService\TaskBase.h" />
+    <ClInclude Include="..\QIAGVSSService\TrafficPosition.h" />
+    <ClInclude Include="graphic\GraphicCaller.h" />
+    <ClInclude Include="ui_AbnormalForm.h" />
+    <ClInclude Include="ui_ConfigForm.h" />
+    <ClInclude Include="ui_DeviceStateForm.h" />
+    <ClInclude Include="ui_HistoryForm.h" />
+    <ClInclude Include="ui_LoginForm.h" />
+    <ClInclude Include="ui_LoginSetForm.h" />
+    <ClInclude Include="ui_MainWindow.h" />
+    <ClInclude Include="ui_MapForm.h" />
+    <ClInclude Include="ui_ModulesForm.h" />
+    <ClInclude Include="ui_SetForm.h" />
+    <QtMoc Include="UserForm.h" />
+    <QtMoc Include="TitleBarEx.h" />
+    <QtMoc Include="TaskForm.h" />
+    <QtMoc Include="TableViewEx.h" />
+    <QtMoc Include="PushButtonEx.h" />
+    <QtMoc Include="MsgBoxEx.h" />
+    <QtMoc Include="ModulesForm.h" />
+    <QtMoc Include="MapForm.h" />
+    <QtMoc Include="MainWindow.h" />
+    <QtMoc Include="LoginSetForm.h" />
+    <QtMoc Include="LoginForm.h" />
+    <QtMoc Include="LineEditEx.h" />
+    <QtMoc Include="LabelEx.h" />
+    <QtMoc Include="HistoryForm.h" />
+    <QtMoc Include="GroupBoxEx.h" />
+    <QtMoc Include="AbnormalForm.h" />
+    <QtMoc Include="ComboBoxEx.h" />
+    <ClInclude Include="Config.h" />
+    <QtMoc Include="ConfigForm.h" />
+    <ClInclude Include="CustomData.h" />
+    <ClInclude Include="CustomJsonModel.h" />
+    <QtMoc Include="CustomTableModel.h" />
+    <ClInclude Include="CustomTabStyle.h" />
+    <QtMoc Include="DeviceStateForm.h" />
+    <ClInclude Include="graphic\Graphic.h" />
+    <ClInclude Include="graphic\GraphicAGV.h" />
+    <ClInclude Include="graphic\GraphicBackground.h" />
+    <ClInclude Include="graphic\GraphicChargeStation.h" />
+    <ClInclude Include="graphic\GraphicMap.h" />
+    <ClInclude Include="graphic\GraphicMember.h" />
+    <ClInclude Include="graphic\GraphicRestStation.h" />
+    <ClInclude Include="graphic\GraphicRFID.h" />
+    <ClInclude Include="graphic\GraphicStation.h" />
+    <ClInclude Include="graphic\GraphicTrack.h" />
+    <ClInclude Include="graphic\GraphicWorkStation.h" />
+    <QtMoc Include="..\QIAGVSSService\SlaveConnect.h" />
+    <ClInclude Include="..\QIAGVSSService\Station.h" />
+    <ClInclude Include="..\QIAGVSSService\StationBase.h" />
+    <ClInclude Include="..\QIAGVSSService\WorkStation.h" />
+    <QtMoc Include="..\QIAGVSSService\ServiceBase.h" />
+    <ClInclude Include="..\QIAGVSSService\ZigbeeCaller.h" />
+    <QtMoc Include="..\QIAGVSSService\ZigbeeControler.h" />
+    <QtMoc Include="..\QIAGVSSService\AgvBase.h" />
+    <ClInclude Include="..\QIAGVSSService\AgvType.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\QIAGVSSService\AgvAttribute.cpp" />
+    <ClCompile Include="..\QIAGVSSService\AgvBase.cpp" />
+    <ClCompile Include="..\QIAGVSSService\AgvType.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ByteArray.cpp" />
+    <ClCompile Include="..\QIAGVSSService\CallerAttribute.cpp" />
+    <ClCompile Include="..\QIAGVSSService\CallerBase.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ChainTable.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ChargeStation.cpp" />
+    <ClCompile Include="..\QIAGVSSService\EQLed.cpp" />
+    <ClCompile Include="..\QIAGVSSService\LedBase.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ProtocolBase.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ProtocolPlc.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ProtocolStm32.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ProtocolZigbee.cpp" />
+    <ClCompile Include="..\QIAGVSSService\RestStation.cpp" />
+    <ClCompile Include="..\QIAGVSSService\RfidBase.cpp" />
+    <ClCompile Include="..\QIAGVSSService\Service.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ServiceBase.cpp" />
+    <ClCompile Include="..\QIAGVSSService\SlaveConnect.cpp" />
+    <ClCompile Include="..\QIAGVSSService\StationBase.cpp" />
+    <ClCompile Include="..\QIAGVSSService\TaskBase.cpp" />
+    <ClCompile Include="..\QIAGVSSService\TrafficPosition.cpp" />
+    <ClCompile Include="..\QIAGVSSService\WorkStation.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ZigbeeCaller.cpp" />
+    <ClCompile Include="..\QIAGVSSService\ZigbeeControler.cpp" />
+    <ClCompile Include="AbnormalForm.cpp" />
+    <ClCompile Include="ComboBoxEx.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="ConfigForm.cpp" />
+    <ClCompile Include="CustomJsonModel.cpp" />
+    <ClCompile Include="CustomTableModel.cpp" />
+    <ClCompile Include="DeviceStateForm.cpp" />
+    <ClCompile Include="graphic\Graphic.cpp" />
+    <ClCompile Include="graphic\GraphicAGV.cpp" />
+    <ClCompile Include="graphic\GraphicBackground.cpp" />
+    <ClCompile Include="graphic\GraphicCaller.cpp" />
+    <ClCompile Include="graphic\GraphicChargeStation.cpp" />
+    <ClCompile Include="graphic\GraphicMap.cpp" />
+    <ClCompile Include="graphic\GraphicMember.cpp" />
+    <ClCompile Include="graphic\GraphicRestStation.cpp" />
+    <ClCompile Include="graphic\GraphicRFID.cpp" />
+    <ClCompile Include="graphic\GraphicStation.cpp" />
+    <ClCompile Include="graphic\GraphicTrack.cpp" />
+    <ClCompile Include="graphic\GraphicWorkStation.cpp" />
+    <ClCompile Include="GroupBoxEx.cpp" />
+    <ClCompile Include="HistoryForm.cpp" />
+    <ClCompile Include="LabelEx.cpp" />
+    <ClCompile Include="LineEditEx.cpp" />
+    <ClCompile Include="LoginForm.cpp" />
+    <ClCompile Include="LoginSetForm.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="MapForm.cpp" />
+    <ClCompile Include="ModulesForm.cpp" />
+    <ClCompile Include="MsgBoxEx.cpp" />
+    <ClCompile Include="PushButtonEx.cpp" />
+    <ClCompile Include="TableViewEx.cpp" />
+    <ClCompile Include="TaskForm.cpp" />
+    <ClCompile Include="TitleBarEx.cpp" />
+    <ClCompile Include="UserForm.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="ui\AbnormalForm.ui" />
+    <QtUic Include="ui\ConfigForm.ui" />
+    <QtUic Include="ui\DeviceStateForm.ui" />
+    <QtUic Include="ui\HistoryForm.ui" />
+    <QtUic Include="ui\LoginForm.ui" />
+    <QtUic Include="ui\LoginSetForm.ui" />
+    <QtUic Include="ui\MainWindow.ui" />
+    <QtUic Include="ui\MapForm.ui" />
+    <QtUic Include="ui\ModulesForm.ui" />
+    <QtUic Include="ui\TaskForm.ui" />
+    <QtUic Include="ui\UserForm.ui" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{54F8A62F-C0C0-4842-9794-E4AD9CF403B2}</ProjectGuid>
+    <Keyword>QtVS_v301</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;network;qml;quick;quickwidgets;serialport;sql;widgets;xml</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,5 @@
+1.发送文字中文乱码问题：
+
+JNA调用时加入  System.setProperty("jna.encoding", "GBK");  这串代码设置为JNA字符集编码
+
+2.如果动态库加载不上，请检查路径是否正确。

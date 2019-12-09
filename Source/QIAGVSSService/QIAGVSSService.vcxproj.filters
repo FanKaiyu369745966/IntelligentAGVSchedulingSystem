@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Header Files\Agv">
+      <UniqueIdentifier>{9839656b-9796-410e-8b73-6acfc323808f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Protocol">
+      <UniqueIdentifier>{25b3bcb9-3883-49f5-99ca-033bc8c61da5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Station">
+      <UniqueIdentifier>{58bd3c76-9b58-4147-a621-ef10a174f3f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Caller">
+      <UniqueIdentifier>{28942b81-1420-4229-967e-0ca643f5b8b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Agv">
+      <UniqueIdentifier>{0cd3e2f9-7615-4151-b694-158954d2508f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Caller">
+      <UniqueIdentifier>{af03f337-3e9f-45f2-a42f-97b51c72527f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protocol">
+      <UniqueIdentifier>{4ca38ebb-659d-4e1d-b884-d32ef5ebe8b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Station">
+      <UniqueIdentifier>{977ca96b-1fa6-4db7-b64a-82e1dd0c3f53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Service">
+      <UniqueIdentifier>{4046f9ce-f12a-4867-b12a-9497b6c13628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Service">
+      <UniqueIdentifier>{93ab555a-7009-4c11-8661-8a9fbab2fdad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Led">
+      <UniqueIdentifier>{1813beca-41be-47b5-9254-e0c7f1d539e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Led">
+      <UniqueIdentifier>{2ad3b1ff-6814-4fb2-b9f2-c23a68b95d56}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChainTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RfidBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SlaveConnect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TrafficPosition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AgvAttribute.cpp">
+      <Filter>Source Files\Agv</Filter>
+    </ClCompile>
+    <ClCompile Include="AgvBase.cpp">
+      <Filter>Source Files\Agv</Filter>
+    </ClCompile>
+    <ClCompile Include="AgvType.cpp">
+      <Filter>Source Files\Agv</Filter>
+    </ClCompile>
+    <ClCompile Include="CallerBase.cpp">
+      <Filter>Source Files\Caller</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtocolBase.cpp">
+      <Filter>Source Files\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtocolStm32.cpp">
+      <Filter>Source Files\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtocolZigbee.cpp">
+      <Filter>Source Files\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="RestStation.cpp">
+      <Filter>Source Files\Station</Filter>
+    </ClCompile>
+    <ClCompile Include="ChargeStation.cpp">
+      <Filter>Source Files\Station</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkStation.cpp">
+      <Filter>Source Files\Station</Filter>
+    </ClCompile>
+    <ClCompile Include="StationBase.cpp">
+      <Filter>Source Files\Station</Filter>
+    </ClCompile>
+    <ClCompile Include="CallerAttribute.cpp">
+      <Filter>Source Files\Caller</Filter>
+    </ClCompile>
+    <ClCompile Include="ZigbeeControler.cpp">
+      <Filter>Source Files\Caller</Filter>
+    </ClCompile>
+    <ClCompile Include="ZigbeeCaller.cpp">
+      <Filter>Source Files\Caller</Filter>
+    </ClCompile>
+    <ClCompile Include="Service.cpp">
+      <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceBase.cpp">
+      <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EQLed.cpp">
+      <Filter>Source Files\Led</Filter>
+    </ClCompile>
+    <ClCompile Include="LedBase.cpp">
+      <Filter>Source Files\Led</Filter>
+    </ClCompile>
+    <ClCompile Include="ByteArray.cpp">
+      <Filter>Source Files\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtocolPlc.cpp">
+      <Filter>Source Files\Protocol</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="SlaveConnect.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="AgvBase.h">
+      <Filter>Header Files\Agv</Filter>
+    </QtMoc>
+    <QtMoc Include="ZigbeeControler.h">
+      <Filter>Header Files\Caller</Filter>
+    </QtMoc>
+    <QtMoc Include="ServiceBase.h">
+      <Filter>Header Files\Service</Filter>
+    </QtMoc>
+    <QtMoc Include="Service.h">
+      <Filter>Header Files\Service</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChainTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RfidBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AgvAttribute.h">
+      <Filter>Header Files\Agv</Filter>
+    </ClInclude>
+    <ClInclude Include="AgvType.h">
+      <Filter>Header Files\Agv</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtocolBase.h">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtocolStm32.h">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargeStation.h">
+      <Filter>Header Files\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="RestStation.h">
+      <Filter>Header Files\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="Station.h">
+      <Filter>Header Files\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="StationBase.h">
+      <Filter>Header Files\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkStation.h">
+      <Filter>Header Files\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtocolZigbee.h">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="CallerBase.h">
+      <Filter>Header Files\Caller</Filter>
+    </ClInclude>
+    <ClInclude Include="CallerAttribute.h">
+      <Filter>Header Files\Caller</Filter>
+    </ClInclude>
+    <ClInclude Include="ZigbeeCaller.h">
+      <Filter>Header Files\Caller</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TrafficPosition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="res\led\EQ2008_Dll.h">
+      <Filter>Header Files\Led</Filter>
+    </ClInclude>
+    <ClInclude Include="EQLed.h">
+      <Filter>Header Files\Led</Filter>
+    </ClInclude>
+    <ClInclude Include="LedBase.h">
+      <Filter>Header Files\Led</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteArray.h">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtocolPlc.h">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="res\led\EQ2008_DataStruct.h">
+      <Filter>Header Files\Led</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

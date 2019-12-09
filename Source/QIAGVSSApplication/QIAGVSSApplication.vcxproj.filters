@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Header Files\Service">
+      <UniqueIdentifier>{46801ddd-703e-4206-9654-72160a20c383}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Service\Agv">
+      <UniqueIdentifier>{c709b5b3-82b8-47b5-a401-ca0c555ab1d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Service\Caller">
+      <UniqueIdentifier>{f84e6969-2fc8-458d-9cf3-fbe1c3b019ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Service\Protocol">
+      <UniqueIdentifier>{318cfbd0-ed25-4907-b17c-0b1f6aa2d315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Service\Service">
+      <UniqueIdentifier>{aad2d00c-18b5-41eb-b6e9-281f9c88f8b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Service\Station">
+      <UniqueIdentifier>{2aeb9344-fd9e-4c3c-a614-3d09bde7b3fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Service">
+      <UniqueIdentifier>{92cac54e-e6cb-43d8-96df-b847d64a6e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Service\Agv">
+      <UniqueIdentifier>{f433df71-e47c-46c2-beb6-6da52a6d6c0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Service\Caller">
+      <UniqueIdentifier>{e25600ea-cea0-47fd-beca-25478eb78b82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Service\Protocol">
+      <UniqueIdentifier>{9e3d08e6-331e-49c1-abfe-0e59a8d766fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Service\Service">
+      <UniqueIdentifier>{8244d040-a6e9-47e5-b20d-85ac18827658}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Service\Station">
+      <UniqueIdentifier>{5daaaab8-e4b6-46ee-990e-4aa6eb8ada81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{92a032f2-3383-4596-9cd8-20b6e1aecbe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{508db95a-5d79-441b-9f00-02ce1aaafbd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Form Files\UI">
+      <UniqueIdentifier>{c57cb87c-65e4-489d-a68d-612d049f9a9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\Graphic">
+      <UniqueIdentifier>{43adc278-911a-42ca-8e50-c5c53b1c5a3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\Graphic">
+      <UniqueIdentifier>{6e4e6d1e-7680-4fdf-8175-be9deec2089a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Service\Led">
+      <UniqueIdentifier>{d3493694-69ad-4975-8da3-2ecc2225ba7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Service\Led">
+      <UniqueIdentifier>{dd30490d-f6b5-46c8-a6d8-394125e76155}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\QIAGVSSService\AgvAttribute.h">
+      <Filter>Header Files\Service\Agv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\AgvType.h">
+      <Filter>Header Files\Service\Agv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\CallerAttribute.h">
+      <Filter>Header Files\Service\Caller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\CallerBase.h">
+      <Filter>Header Files\Service\Caller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\ZigbeeCaller.h">
+      <Filter>Header Files\Service\Caller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\Protocol.h">
+      <Filter>Header Files\Service\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\ProtocolBase.h">
+      <Filter>Header Files\Service\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\ProtocolStm32.h">
+      <Filter>Header Files\Service\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\ProtocolZigbee.h">
+      <Filter>Header Files\Service\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\ChargeStation.h">
+      <Filter>Header Files\Service\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\RestStation.h">
+      <Filter>Header Files\Service\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\Station.h">
+      <Filter>Header Files\Service\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\StationBase.h">
+      <Filter>Header Files\Service\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\WorkStation.h">
+      <Filter>Header Files\Service\Station</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\ChainTable.h">
+      <Filter>Header Files\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\RfidBase.h">
+      <Filter>Header Files\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\TaskBase.h">
+      <Filter>Header Files\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\TrafficPosition.h">
+      <Filter>Header Files\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicTrack.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicWorkStation.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicStation.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicRFID.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicRestStation.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicMember.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicMap.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicChargeStation.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicBackground.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicAGV.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\Graphic.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomData.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomJsonModel.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomTabStyle.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_SetForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic\GraphicCaller.h">
+      <Filter>Header Files\UI\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\EQLed.h">
+      <Filter>Header Files\Service\Led</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\LedBase.h">
+      <Filter>Header Files\Service\Led</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\ByteArray.h">
+      <Filter>Header Files\Service\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_AbnormalForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_ConfigForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_DeviceStateForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_HistoryForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_LoginForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_LoginSetForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MainWindow.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MapForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_ModulesForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_TaskForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_UserForm.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\ProtocolPlc.h">
+      <Filter>Header Files\Service\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\res\led\EQ2008_DataStruct.h">
+      <Filter>Header Files\Service\Led</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QIAGVSSService\res\led\EQ2008_Dll.h">
+      <Filter>Header Files\Service\Led</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\QIAGVSSService\AgvBase.h">
+      <Filter>Header Files\Service\Agv</Filter>
+    </QtMoc>
+    <QtMoc Include="..\QIAGVSSService\ZigbeeControler.h">
+      <Filter>Header Files\Service\Caller</Filter>
+    </QtMoc>
+    <QtMoc Include="..\QIAGVSSService\ServiceBase.h">
+      <Filter>Header Files\Service\Service</Filter>
+    </QtMoc>
+    <QtMoc Include="..\QIAGVSSService\SlaveConnect.h">
+      <Filter>Header Files\Service</Filter>
+    </QtMoc>
+    <QtMoc Include="UserForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="AbnormalForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="ComboBoxEx.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="ConfigForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="CustomTableModel.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="DeviceStateForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="GroupBoxEx.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="HistoryForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="LabelEx.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="LineEditEx.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="LoginForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="LoginSetForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="MainWindow.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="MapForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="ModulesForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="MsgBoxEx.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="PushButtonEx.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="TableViewEx.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="TaskForm.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="TitleBarEx.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+    <QtMoc Include="..\QIAGVSSService\Service.h">
+      <Filter>Header Files\Service\Service</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\QIAGVSSService\AgvAttribute.cpp">
+      <Filter>Source Files\Service\Agv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\AgvBase.cpp">
+      <Filter>Source Files\Service\Agv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\AgvType.cpp">
+      <Filter>Source Files\Service\Agv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\CallerAttribute.cpp">
+      <Filter>Source Files\Service\Caller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\CallerBase.cpp">
+      <Filter>Source Files\Service\Caller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ZigbeeCaller.cpp">
+      <Filter>Source Files\Service\Caller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ZigbeeControler.cpp">
+      <Filter>Source Files\Service\Caller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ProtocolBase.cpp">
+      <Filter>Source Files\Service\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ProtocolStm32.cpp">
+      <Filter>Source Files\Service\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ProtocolZigbee.cpp">
+      <Filter>Source Files\Service\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\Service.cpp">
+      <Filter>Source Files\Service\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ServiceBase.cpp">
+      <Filter>Source Files\Service\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ChargeStation.cpp">
+      <Filter>Source Files\Service\Station</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\RestStation.cpp">
+      <Filter>Source Files\Service\Station</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\StationBase.cpp">
+      <Filter>Source Files\Service\Station</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\WorkStation.cpp">
+      <Filter>Source Files\Service\Station</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ChainTable.cpp">
+      <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\RfidBase.cpp">
+      <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\SlaveConnect.cpp">
+      <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\TaskBase.cpp">
+      <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\TrafficPosition.cpp">
+      <Filter>Source Files\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicAGV.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicBackground.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicChargeStation.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicMap.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicMember.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicRestStation.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicRFID.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicStation.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicTrack.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicWorkStation.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\Graphic.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="AbnormalForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ComboBoxEx.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomJsonModel.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomTableModel.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="DeviceStateForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupBoxEx.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HistoryForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelEx.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LineEditEx.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginSetForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MapForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulesForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgBoxEx.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PushButtonEx.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TableViewEx.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleBarEx.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UserForm.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic\GraphicCaller.cpp">
+      <Filter>Source Files\UI\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\EQLed.cpp">
+      <Filter>Source Files\Service\Led</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\LedBase.cpp">
+      <Filter>Source Files\Service\Led</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ByteArray.cpp">
+      <Filter>Source Files\Service\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QIAGVSSService\ProtocolPlc.cpp">
+      <Filter>Source Files\Service\Protocol</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="ui\AbnormalForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\ConfigForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\DeviceStateForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\HistoryForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\LoginForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\LoginSetForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\MainWindow.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\MapForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\ModulesForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\TaskForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+    <QtUic Include="ui\UserForm.ui">
+      <Filter>Form Files\UI</Filter>
+    </QtUic>
+  </ItemGroup>
+</Project>

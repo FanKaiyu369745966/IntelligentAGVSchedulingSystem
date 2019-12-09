@@ -1,0 +1,21 @@
+1、订单号		(task_order) 		string 	一组由时间日期组成的字符串时间精确至毫秒如“020191126084700123” 共18位
+2、任务号		(task_id) 			int 	自增长的数值
+3、托盘码		(task_tray) 		string 
+4、目标工站		(task_target) 		string 	目标工作站名称
+5、任务内容		(task_mission) 		string 	要执行的任务
+6、执行者		(task_executer) 	int 	执行任务的AGV编号
+7、任务执行状态	(task_status) 		string 	执行任务的AGV编号
+8、下单时间		(task_publish) 		date 	生成任务的时间
+9、执行时间		(task_execution) 	date 	开始执行任务的时间
+10、完成时间	(task_finish)		date 	任务完成的时间
+11、异常信息	(task_error)		string	任务完成的时间
+
+创建任务需要提供的参数:
+1、目标工站
+2、任务内容
+
+目标工站内容由工作站名称提供，没有名称的工作站则提供默认的名称即工作站+编号
+任务内容主要为
+1、运送毛坯料
+2、运送空托盘
+3、取回空托盘

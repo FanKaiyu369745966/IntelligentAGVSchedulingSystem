@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{EDD3B6F3-445A-43CE-AC29-F942ED7CF419}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{FF0261D8-F646-463E-B76A-C5F567E6D307}"
+	ProjectSection(SolutionItems) = preProject
+		Document\AGVDB_表结构.sql = Document\AGVDB_表结构.sql
+		Document\AGV调度系统使用说明手册.docx = Document\AGV调度系统使用说明手册.docx
+		Document\IntelligentAGVSchedulingSystem.mdj = Document\IntelligentAGVSchedulingSystem.mdj
+		Document\WMS报告（三次）.docx = Document\WMS报告（三次）.docx
+		Document\仓库平面布局图（2.3横梁不含一区货架）V3.0-20191021.dwg = Document\仓库平面布局图（2.3横梁不含一区货架）V3.0-20191021.dwg
+		Document\分布式智能AGV调度系统通信协议.docx = Document\分布式智能AGV调度系统通信协议.docx
+		Document\新增模块.txt = Document\新增模块.txt
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QIAGVSSMapCreater", "Source\QIAGVSSMapCreater\QIAGVSSMapCreater.vcxproj", "{812C37D8-F533-4DC1-A5D1-CEB4A2D39930}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QIAGVSSService", "Source\QIAGVSSService\QIAGVSSService.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22541440-3CD5-4DD9-B6F6-742E4D91066C}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QIAGVSSApplication", "Source\QIAGVSSApplication\QIAGVSSApplication.vcxproj", "{54F8A62F-C0C0-4842-9794-E4AD9CF403B2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtZigbeeModulDemo", "Source\QtZigbeeModulDemo\QtZigbeeModulDemo.vcxproj", "{2150D1CB-DF25-45A9-BF57-180F3E11FDEA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtAGVModulDemo", "Source\QtAGVModulDemo\QtAGVModulDemo.vcxproj", "{33335755-B09D-480F-9401-CBF9B9D56D7D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppSetup", "Source\Setup\AppSetup\AppSetup.vdproj", "{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{812C37D8-F533-4DC1-A5D1-CEB4A2D39930}.Debug|x64.ActiveCfg = Debug|x64
+		{812C37D8-F533-4DC1-A5D1-CEB4A2D39930}.Debug|x64.Build.0 = Debug|x64
+		{812C37D8-F533-4DC1-A5D1-CEB4A2D39930}.Debug|x86.ActiveCfg = Debug|x64
+		{812C37D8-F533-4DC1-A5D1-CEB4A2D39930}.Release|x64.ActiveCfg = Release|x64
+		{812C37D8-F533-4DC1-A5D1-CEB4A2D39930}.Release|x64.Build.0 = Release|x64
+		{812C37D8-F533-4DC1-A5D1-CEB4A2D39930}.Release|x86.ActiveCfg = Release|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.ActiveCfg = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.Build.0 = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x86.ActiveCfg = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.Build.0 = Release|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x86.ActiveCfg = Release|x64
+		{54F8A62F-C0C0-4842-9794-E4AD9CF403B2}.Debug|x64.ActiveCfg = Debug|x64
+		{54F8A62F-C0C0-4842-9794-E4AD9CF403B2}.Debug|x64.Build.0 = Debug|x64
+		{54F8A62F-C0C0-4842-9794-E4AD9CF403B2}.Debug|x86.ActiveCfg = Debug|x64
+		{54F8A62F-C0C0-4842-9794-E4AD9CF403B2}.Release|x64.ActiveCfg = Release|x64
+		{54F8A62F-C0C0-4842-9794-E4AD9CF403B2}.Release|x64.Build.0 = Release|x64
+		{54F8A62F-C0C0-4842-9794-E4AD9CF403B2}.Release|x86.ActiveCfg = Release|x64
+		{2150D1CB-DF25-45A9-BF57-180F3E11FDEA}.Debug|x64.ActiveCfg = Debug|x64
+		{2150D1CB-DF25-45A9-BF57-180F3E11FDEA}.Debug|x64.Build.0 = Debug|x64
+		{2150D1CB-DF25-45A9-BF57-180F3E11FDEA}.Debug|x86.ActiveCfg = Debug|x64
+		{2150D1CB-DF25-45A9-BF57-180F3E11FDEA}.Release|x64.ActiveCfg = Release|x64
+		{2150D1CB-DF25-45A9-BF57-180F3E11FDEA}.Release|x64.Build.0 = Release|x64
+		{2150D1CB-DF25-45A9-BF57-180F3E11FDEA}.Release|x86.ActiveCfg = Release|x64
+		{33335755-B09D-480F-9401-CBF9B9D56D7D}.Debug|x64.ActiveCfg = Debug|x64
+		{33335755-B09D-480F-9401-CBF9B9D56D7D}.Debug|x64.Build.0 = Debug|x64
+		{33335755-B09D-480F-9401-CBF9B9D56D7D}.Debug|x86.ActiveCfg = Debug|x64
+		{33335755-B09D-480F-9401-CBF9B9D56D7D}.Release|x64.ActiveCfg = Release|x64
+		{33335755-B09D-480F-9401-CBF9B9D56D7D}.Release|x64.Build.0 = Release|x64
+		{33335755-B09D-480F-9401-CBF9B9D56D7D}.Release|x86.ActiveCfg = Release|x64
+		{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46}.Debug|x64.ActiveCfg = Debug
+		{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46}.Debug|x64.Build.0 = Debug
+		{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46}.Debug|x86.ActiveCfg = Debug
+		{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46}.Debug|x86.Build.0 = Debug
+		{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46}.Release|x64.ActiveCfg = Release
+		{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46}.Release|x64.Build.0 = Release
+		{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46}.Release|x86.ActiveCfg = Release
+		{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46}.Release|x86.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{812C37D8-F533-4DC1-A5D1-CEB4A2D39930} = {EDD3B6F3-445A-43CE-AC29-F942ED7CF419}
+		{B12702AD-ABFB-343A-A199-8E24837244A3} = {EDD3B6F3-445A-43CE-AC29-F942ED7CF419}
+		{54F8A62F-C0C0-4842-9794-E4AD9CF403B2} = {EDD3B6F3-445A-43CE-AC29-F942ED7CF419}
+		{2150D1CB-DF25-45A9-BF57-180F3E11FDEA} = {EDD3B6F3-445A-43CE-AC29-F942ED7CF419}
+		{33335755-B09D-480F-9401-CBF9B9D56D7D} = {EDD3B6F3-445A-43CE-AC29-F942ED7CF419}
+		{D4654F0B-3398-47B1-A1C9-13E6D7B1CA46} = {EDD3B6F3-445A-43CE-AC29-F942ED7CF419}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15829EFA-EC6D-4FFC-8449-0191A77EE65C}
+	EndGlobalSection
+EndGlobal
