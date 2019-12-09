@@ -29,7 +29,7 @@ AgvBase::AgvBase(const shared_ptr<AgvType>& type, const id_t& id, const bool& bC
 AgvBase::~AgvBase()
 {
 	m_thread.quit();
-	m_thread.wait();
+	m_thread.wait(1000);
 	m_timer.stop();
 }
 

@@ -1,5 +1,5 @@
 ﻿#include "EQLed.h"
-
+#include <QException>
 #include <QDebug>
 
 
@@ -11,6 +11,24 @@ EQLed::EQLed()
 	, m_strFont(QString::fromLocal8Bit("宋体"))
 	, m_nSize(0)
 {
+	QByteArray type = m_strFont.toLocal8Bit();
+	m_font = new char[type.size() + 1];
+
+	memset(m_font, 0, type.size() + 1);
+
+	memcpy(m_font, type.constData(), type.size());
+
+	m_fontInfo.bFontBold = false;
+	m_fontInfo.bFontItaic = false;
+	m_fontInfo.bFontUnderline = false;
+	m_fontInfo.colorFont = 0xFFFF;
+	m_fontInfo.iFontSize = m_nSize;
+	m_fontInfo.strFontName = m_font;
+	m_fontInfo.iAlignStyle = 0;
+	m_fontInfo.iVAlignerStyle = 1;
+	m_fontInfo.iRowSpace = 0;
+
+	return;
 }
 
 EQLed::EQLed(const unsigned short& id, const unsigned short& width, const unsigned short& height, const int& maxLine, const QString& font, const int& size)
@@ -22,10 +40,31 @@ EQLed::EQLed(const unsigned short& id, const unsigned short& width, const unsign
 	, m_strFont(font)
 	, m_nSize(size)
 {
+	QByteArray type = m_strFont.toLocal8Bit();
+	m_font = new char[type.size() + 1];
+
+	memset(m_font, 0, type.size() + 1);
+
+	memcpy(m_font, type.constData(), type.size());
+
+	m_fontInfo.bFontBold = false;
+	m_fontInfo.bFontItaic = false;
+	m_fontInfo.bFontUnderline = false;
+	m_fontInfo.colorFont = 0xFFFF;
+	m_fontInfo.iFontSize = m_nSize;
+	m_fontInfo.strFontName = m_font;
+	m_fontInfo.iAlignStyle = 0;
+	m_fontInfo.iVAlignerStyle = 1;
+	m_fontInfo.iRowSpace = 0;
 }
 
 EQLed::~EQLed()
 {
+	if (m_font)
+	{
+		delete[] m_font;
+	}
+
 	m_lib.unload();
 }
 
@@ -51,37 +90,6 @@ bool EQLed::Disconnect()
 	}
 
 	m_bConnect = User_RealtimeDisConnect(m_usId);
-
-	return m_bConnect;
-}
-
-bool EQLed::SendText(char* strText)
-{
-	if (m_usId == 0)
-	{
-		m_bConnect = false;
-		return false;
-	}
-
-	if (strText == nullptr)
-	{
-		return false;
-	}
-
-	//设置字体属性
-	User_FontSet FontInfo;
-	FontInfo.bFontBold = false;
-	FontInfo.bFontItaic = false;
-	FontInfo.bFontUnderline = false;
-	FontInfo.colorFont = 0xFFFF;
-	FontInfo.iFontSize = m_nSize;
-	FontInfo.strFontName = m_strFont.toLocal8Bit().data();
-	FontInfo.iAlignStyle = 0;
-	FontInfo.iVAlignerStyle = 1;
-	FontInfo.iRowSpace = 0;
-
-	//发送文本
-	m_bConnect = User_RealtimeSendText(m_usId, 0, 0, m_usWidth, m_usHeight, strText, &FontInfo);
 
 	return m_bConnect;
 }
@@ -145,7 +153,6 @@ bool EQLed::SetText(const int& key, const QString& value)
 		return false;
 	}
 
-	QString bak = "";
 	if (m_mapText.find(key) != m_mapText.end())
 	{
 		if (m_mapText[key] == value)
@@ -153,42 +160,10 @@ bool EQLed::SetText(const int& key, const QString& value)
 			return true;
 		}
 
-		bak = m_mapText[key];
+		m_mapBak[key] = m_mapText[key];
 	}
 
 	m_mapText[key] = value;
-
-	int row = 1;	/*!< 字符串占用的行数 */
-
-	if (m_nMaxLine > 0)
-	{
-		int nLen = value.toLocal8Bit().length();
-		row = nLen / m_nMaxLine;
-		if ((nLen % m_nMaxLine) > 0)
-		{
-			++row;
-		}
-	}
-
-	QString str;
-
-	for (std::map<int, QString>::iterator it = m_mapText.begin(); it != m_mapText.end(); ++it)
-	{
-		if ((it->first > key&& it->first < key + row) && (it->second.isEmpty() || it->second.isNull()))
-		{
-			continue;
-		}
-
-		str += it->second;
-		str += '\n';
-	}
-
-	if (SendText(str) == false)
-	{
-		m_mapText[key] = bak;
-
-		return false;
-	}
 
 	return true;
 }
@@ -207,19 +182,69 @@ bool EQLed::ClearText(const int& key)
 
 	m_mapText.erase(m_mapText.find(key));
 
+	return true;
+}
+
+bool EQLed::SendText()
+{
 	QString str;
 
 	for (std::map<int, QString>::iterator it = m_mapText.begin(); it != m_mapText.end(); ++it)
 	{
 		str += it->second;
 		str += '\n';
+
+		int row = 1;	/*!< 字符串占用的行数 */
+
+		if (m_nMaxLine > 0)
+		{
+			int nLen = it->second.toLocal8Bit().length();
+			row = nLen / m_nMaxLine;
+			if ((nLen % m_nMaxLine) > 0)
+			{
+				++row;
+			}
+		}
+
+		int key = it->first; /*!< 键值 */
+
+		for (int i = 1; i < row; ++i)
+		{
+			if (m_mapText.find(key + i) == m_mapText.end())
+			{
+				continue;
+			}
+
+			QString value = m_mapText.at(key + i);
+
+			if (value.isEmpty() || value.isNull())
+			{
+				++it;
+			}
+		}
 	}
 
-	return SendText(str);
+	if (SendText(str))
+	{
+		return true;
+	}
+
+	for (std::map<int, QString>::iterator it = m_mapBak.begin(); it != m_mapBak.end(); it = m_mapBak.erase(it))
+	{
+		m_mapText[it->first] = it->second;
+	}
+
+	return false;
 }
 
 bool EQLed::SendText(const QString& str)
 {
+	if (m_usId == 0)
+	{
+		m_bConnect = false;
+		return false;
+	}
+
 	if (m_bSent == false)
 	{
 		return false;
@@ -230,14 +255,29 @@ bool EQLed::SendText(const QString& str)
 	if (Connect() == false)
 	{
 		m_bSent = true;
+
 		return false;
 	}
 
-	if (SendText(str.toLocal8Bit().data()) == false)
+	if (str.isNull() || str.isEmpty())
 	{
 		m_bSent = true;
-		return false;
+
+		Disconnect();
+
+		return true;
 	}
+
+	char* ptr = new char[str.toLocal8Bit().size() + 1];
+
+	memset(ptr, 0, str.toLocal8Bit().size() + 1);
+
+	memcpy(ptr, str.toLocal8Bit().data(), str.toLocal8Bit().size());
+
+	//发送文本
+	m_bConnect = User_RealtimeSendText(m_usId, 0, 0, m_usWidth, m_usHeight, ptr, &m_fontInfo);
+
+	delete[] ptr;
 
 	Disconnect();
 

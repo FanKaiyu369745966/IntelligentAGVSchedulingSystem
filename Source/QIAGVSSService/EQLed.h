@@ -52,7 +52,7 @@ public:
 	* @param strText 需要发送的字符串
 	* @return bool 成功 true, 失败 false
 	*/
-	bool SendText(char* strText);
+	bool SendText(const QString& strText);
 
 	//显示屏控制操作////////////////////////////////////////////////////////////////////////
 	/*!
@@ -82,15 +82,18 @@ public:
 
 private:
 	std::map<int, QString> m_mapText;
+	std::map<int, QString> m_mapBak;
 	bool m_bConnect;
 	int m_nMaxLine;			/*!< 单行最大字节数 */
 	bool m_bSent;
 	QString	m_strFont;
 	int m_nSize;
+	User_FontSet m_fontInfo;
+	char* m_font;
 public:
 	bool SetText(const int& key, const QString& value);
 	bool ClearText(const int& key);
-	bool SendText(const QString&);
+	bool SendText();
 	bool IsConnected() const { return m_bConnect; }
 	QString GetValue(const int&) const;
 };

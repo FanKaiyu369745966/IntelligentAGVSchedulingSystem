@@ -2098,6 +2098,8 @@ void Service::slotUpdateClock()
 		.arg(t->tm_min, 2, 10, QLatin1Char('0'))
 		.arg(t->tm_sec, 2, 10, QLatin1Char('0')));
 
+	m_led->SendText();
+
 	return;
 }
 

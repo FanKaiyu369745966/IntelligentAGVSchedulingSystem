@@ -166,15 +166,15 @@ bool SlaveConnect::WriteData(const char* data, const qint64& maxSize) const
 		return false;
 	}
 
-	QString _debug = "Sent data:";
-	for (int i = 0; i < maxSize; ++i)
-	{
-		_debug += QString::fromLocal8Bit("%1 ").arg(*(data + i) & 0xFF, 2, 16, QLatin1Char('0'));
-	}
+	//QString _debug = "Sent data:";
+	//for (int i = 0; i < maxSize; ++i)
+	//{
+	//	_debug += QString::fromLocal8Bit("%1 ").arg(*(data + i) & 0xFF, 2, 16, QLatin1Char('0'));
+	//}
 
-	qDebug() << _debug << endl;
+	//qDebug() << _debug << endl;
 
-	return m_pSocket->waitForBytesWritten();
+	return m_pSocket->waitForBytesWritten(1000);
 }
 
 bool SlaveConnect::WriteData(const QByteArray& data) const
