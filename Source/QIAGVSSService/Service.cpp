@@ -493,7 +493,7 @@ void Service::RestStationControl(const RestStation& rester)
 			break;
 		}
 
-		rester.GetNextLock(rfid->GetId());
+		rfid = GetRFIDPtr(rester.GetNextLock(rfid->GetId()));
 	}
 
 	return;
@@ -1620,7 +1620,7 @@ std::list<int> Service::GetFreeAGVList(const OrderMap& _map)
 {
 	std::list<int> list;	/*!< 可分配订单的AGV列表 */
 
- 	for (AgvArray::iterator it = m_mapAGVs.begin(); it != m_mapAGVs.end(); ++it)
+	for (AgvArray::iterator it = m_mapAGVs.begin(); it != m_mapAGVs.end(); ++it)
 	{
 		AgvAttr attr = it->second->GetAttribute();		/*!< AGV属性 */
 		AgvMode mode = attr.GetMode();	/*!< AGV模式*/

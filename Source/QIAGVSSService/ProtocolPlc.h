@@ -18,9 +18,6 @@ protected:
 public:
 	typedef unsigned short length_t;
 
-protected:
-	unsigned char m_byCode;	/*!< 设备编码 */
-
 public:
 	/*!
 	 * @brief 合成报文包
@@ -36,5 +33,29 @@ public:
 	 * @return QByteArrayList 解析后的数据体内容列表
 	*/
 	ByteArrayList Process(ByteArray& data) const;
+protected:
+	/*!
+	 * @brief 报文转义
+	 *
+	 * 0xBA 转义为 0xB0 0x01
+	 * 0xBE 转义为 0xB0 0x02
+	 * 0xB0 转义为 0xB0 0x00
+	 * @param const char* 指向数据体首地址的指针
+	 * @param const int& 数据大小
+	 * @return QByteArray 返回转义后的数据
+	*/
+	ByteArray Encoding(const unsigned char* data, const int& maxSize) const;
+
+	/*!
+	 * @brief 报文反转义
+	 *
+	 * 0xB0 0x01 转义为 0xBA
+	 * 0xB0 0x02 转义为 0xBE
+	 * 0xB0 0x00 转义为 0xB0
+	 * @param const char* 指向数据体首地址的指针
+	 * @param const int& 数据大小
+	 * @return QByteArray 返回反转义后的数据
+	*/
+	ByteArray Decoding(const unsigned char* data, const int& maxSize) const;
 };
 #endif // PROTOCOLPLC_H
