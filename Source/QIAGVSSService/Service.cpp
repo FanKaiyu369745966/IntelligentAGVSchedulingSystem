@@ -1611,55 +1611,56 @@ void Service::OrderManage()
 
 std::list<int> Service::GetFreeAGVList(const OrderMap& _map)
 {
-	std::list<int> list;
+	std::list<int> list;	/*!< 可分配订单的AGV列表 */
 
 	for (AgvArray::iterator it = m_mapAGVs.begin(); it != m_mapAGVs.end(); ++it)
 	{
-		AgvAttr attr = it->second->GetAttribute();
-		AgvMode mode = attr.GetMode();
+		AgvAttr attr = it->second->GetAttribute();		/*!< AGV属性 */
+		AgvMode mode = attr.GetMode();	/*!< AGV模式*/
 
 		if (mode == AgvMode::Mode_Hand)
-		{
+		{// AGV为手动模式不可以分配订单
 			continue;
 		}
 
 		if (HaveOrder(_map, it->second->GetId()))
-		{
+		{// AGV已经有订单,不可以再分配订单
 			continue;
 		}
 
-		rfid_t cur = attr.GetCurLocation();
+		rfid_t cur = attr.GetCurLocation();		/*!< AGV当前RFID地标卡编号*/
 
-		bool head = false;
+		bool head = false;	/*!< 待机站首地址标识 */
 
 		if (IsInRestQueue(cur))
-		{
+		{// 如果存在待机队列
 			if (IsRestQueueHead(cur) == false)
-			{
+			{// AGV不在队列的首位，不可以再分配订单
 				continue;
 			}
 
 			head = true;
 		}
 
-		AgvBattery power = attr.GetBattery();
+		AgvBattery power = attr.GetBattery();	/*!< AGV电量 */
 
 		if (power == AgvBattery::Power_Off)
-		{
+		{// AGV未连接，不可分配订单
 			continue;
 		}
 		else if (power < AgvBattery::Power_Low)
-		{// 电量不足
+		{// 电量不足，不可分配订单
 			ReturnControl(*it->second);
 		}
 
 		if (m_mapRestQueues.size() > 0 && head == false)
-		{
+		{// 非待机首位的AGV，返回待机队列等待订单分配
 			ReturnControl(*it->second);
 
 			continue;
 		}
 
+		// 存入可分配订单列表
 		list.push_back(it->second->GetId());
 	}
 
