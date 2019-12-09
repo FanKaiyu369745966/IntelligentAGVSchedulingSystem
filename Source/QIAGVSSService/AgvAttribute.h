@@ -85,7 +85,7 @@ enum class AgvError : unsigned char
 enum class AgvAction : unsigned char
 {
 	Act_None,				/*!< 无动作 */
-	Act_Move = UCHAR_MAX,	/*!< 移动动作 */
+	Act_Move = UCHAR_MAX - 1,	/*!< 移动动作 */
 };
 
 /*! @brief 描述AGV动作执行状态的枚举 */

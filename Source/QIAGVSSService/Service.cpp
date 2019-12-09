@@ -532,16 +532,14 @@ void Service::RestQueueControl(const unsigned short& cur, const unsigned short& 
 void Service::RestQueueControl(const RestStation& cur, const RestStation& prev)
 {
 	if (cur.IsNull())
-	{
-		// 无效的待机站
+	{// 无效的待机站
 		return;
 	}
 
 	RFID rfid = GetRFID(cur.GetLocation());
 
 	if (rfid == false)
-	{
-		// 无效的坐标
+	{// 无效的坐标
 		return;
 	}
 
@@ -594,39 +592,39 @@ void Service::ReturnControl(Agv& agv)
 	AgvBattery battery = agv.GetAttribute().GetBattery();
 
 	if (battery <= AgvBattery::Power_Low && battery > AgvBattery::Power_Off)
-	{
+	{// 电量不足
 		if (ReturnToChargeStation(agv))
-		{
+		{// 存在空闲的充电站
 			return;
 		}
 
 		if (m_mapRestQueues.size() > 0)
-		{
+		{// 存在待机队列,返回队列
 			ReturnToRestQueue(agv);
 		}
 		else
-		{
+		{// 不存在待机队列,返回待机站
 			ReturnToRestStation(agv);
 		}
 	}
 	else
 	{
-
 		if (m_mapRestQueues.size() > 0)
-		{
+		{// 存在待机队列,返回队列
 			if (ReturnToRestQueue(agv))
-			{
+			{// 存在未满的待机队列
 				return;
 			}
 		}
 		else
-		{
+		{// 不存在待机队列,返回待机站
 			if (ReturnToRestStation(agv))
-			{
+			{// 存在空闲的待机站
 				return;
 			}
 		}
 
+		// 不满足以上条件，则返回充电站
 		ReturnToChargeStation(agv);
 	}
 
@@ -635,20 +633,22 @@ void Service::ReturnControl(Agv& agv)
 
 bool Service::ReturnToRestQueue(Agv& agv)
 {
-	if (IsInRestStation(agv.GetAttribute().GetCurLocation()))
-	{
+	if (IsInRestStation(agv.GetAttribute().GetCurLocation()) || IsInChargeStation(agv.GetAttribute().GetCurLocation()))
+	{// AGV已在待机站 或 充电站
 		return true;
 	}
 
 	for (RestQueueArray::const_iterator it = m_mapRestQueues.begin(); it != m_mapRestQueues.end(); ++it)
 	{
+		// 获取队列尾待机站
 		RestStation restSta = restStation(it->second.GetTail());
 
 		if (restSta.IsNull())
-		{
+		{//无效待机站
 			continue;
 		}
 
+		// 移动至待机站
 		agv.Move(restSta.GetLocation());
 
 		return true;
@@ -659,8 +659,8 @@ bool Service::ReturnToRestQueue(Agv& agv)
 
 bool Service::ReturnToRestStation(Agv& agv)
 {
-	if (IsInRestStation(agv.GetAttribute().GetCurLocation()))
-	{
+	if (IsInRestStation(agv.GetAttribute().GetCurLocation()) || IsInChargeStation(agv.GetAttribute().GetCurLocation()))
+	{// AGV已在待机站 或 充电站
 		return true;
 	}
 
@@ -669,23 +669,23 @@ bool Service::ReturnToRestStation(Agv& agv)
 		ResterPtr staPtr = it->second;
 
 		if (staPtr->IsNull())
-		{
+		{// 无效待机站
 			continue;
 		}
 
 		RFID locat = GetRFID(staPtr->GetLocation());
 
 		if (locat == false)
-		{
+		{// 无效RFID地标卡
 			continue;
 		}
 
 		const void* locker = locat.GetLocker();
 
 		if (locker != nullptr)
-		{
+		{// 地标卡上存在AGV
 			if (locker != &agv)
-			{
+			{// 地标卡上存在与目标AGV不相同的AGV
 				continue;
 			}
 
@@ -694,11 +694,15 @@ bool Service::ReturnToRestStation(Agv& agv)
 
 		const void* peerPocker = locat.GetPeerLocker();
 
-		if (peerPocker != nullptr && peerPocker != &agv)
-		{
-			continue;
+		if (peerPocker != nullptr)
+		{// 存在正在向此待机站移动的AGV
+			if (peerPocker != &agv)
+			{// 移动至此待机站的AGV与目标AGV不相同
+				continue;
+			}
 		}
 
+		// 移动至待机站
 		agv.Move(locat.GetId());
 
 		return true;
@@ -709,8 +713,8 @@ bool Service::ReturnToRestStation(Agv& agv)
 
 bool Service::ReturnToChargeStation(Agv& agv)
 {
-	if (IsInChargeStation(agv.GetAttribute().GetCurLocation()))
-	{
+	if (IsInRestStation(agv.GetAttribute().GetCurLocation()) || IsInChargeStation(agv.GetAttribute().GetCurLocation()))
+	{// AGV已在待机站 或 充电站
 		return true;
 	}
 
@@ -719,23 +723,23 @@ bool Service::ReturnToChargeStation(Agv& agv)
 		shared_ptr < ChargeStation > staPtr = it->second;
 
 		if (staPtr->IsNull())
-		{
+		{// 无效充电站
 			continue;
 		}
 
 		RFID locat = GetRFID(staPtr->GetLocation());
 
 		if (locat == false)
-		{
+		{// 无效RFID地标卡
 			continue;
 		}
 
 		const void* locker = locat.GetLocker();
 
 		if (locker != nullptr)
-		{
+		{// 地标卡上存在AGV
 			if (locker != &agv)
-			{
+			{// 地标卡上存在与目标AGV不相同的AGV
 				continue;
 			}
 
@@ -744,11 +748,15 @@ bool Service::ReturnToChargeStation(Agv& agv)
 
 		const void* peerPocker = locat.GetPeerLocker();
 
-		if (peerPocker != nullptr && peerPocker != &agv)
-		{
-			continue;
+		if (peerPocker != nullptr)
+		{// 存在正在向此待机站移动的AGV
+			if (peerPocker != &agv)
+			{// 移动至此待机站的AGV与目标AGV不相同
+				continue;
+			}
 		}
 
+		// 移动待机站
 		agv.Move(locat.GetId());
 
 		return true;
@@ -1513,12 +1521,12 @@ bool Service::HaveOrder(const OrderMap& _map, const int& id)
 		AgvPtr ptr = it->second.GetExecuter();
 
 		if (ptr == nullptr)
-		{
+		{// 无效AGV
 			continue;
 		}
 
 		if (ptr->GetId() == id)
-		{
+		{// 订单的执行者与目标AGV相同
 			return true;
 		}
 	}
@@ -1530,12 +1538,11 @@ void Service::OrderManage()
 {
 	OrderMap list = GetOrder();	/*!< 订单列表 */
 
-	// 可用于分配的AGV列表
-	std::list<int> agvList = GetFreeAGVList(list);
+	// 获取可用于分配订单的AGV列表
+	std::list<int> agvList = GetFreeAGVList(list);	/*!< 可用于分配订单的AGV列表 */
 
 	if (list.size() == 0)
-	{
-		// 没有订单时,所有AGV应返回待机站
+	{// 没有订单时,所有AGV应返回待机站
 		for (std::list<int>::const_iterator it = agvList.begin(); it != agvList.end(); ++it)
 		{
 			AgvPtr ptr = GetAGVPtr(*it);
@@ -1551,22 +1558,22 @@ void Service::OrderManage()
 	}
 
 	for (OrderMap::iterator it = list.begin(); it != list.end(); ++it)
-	{//执行订单
+	{
 		if (it->second.GetExecuter() == nullptr)
-		{// 未分配订单
+		{// 未分配的订单
 			if (agvList.size() == 0)
 			{
 				continue;
 			}
 
 			if (it->second.IsFull() == false)
-			{
+			{// 不是完整的订单
 				continue;
 			}
 
 			// 分配订单
 			if (UpdateOrder(it->second.GetNo(), it->second.GetTray(), agvList.front()))
-			{
+			{// 分配订单成功
 				agvList.pop_front();
 			}
 
@@ -1574,7 +1581,7 @@ void Service::OrderManage()
 		}
 
 		if (ExecuteOrder(it->second) == false)
-		{
+		{// 未执行完订单
 			continue;
 		}
 
@@ -1588,7 +1595,7 @@ void Service::OrderManage()
 		}
 
 		if (m_mapRestQueues.size() == 0)
-		{
+		{// 没有待机队列
 			// 将AGV返回可分配的AGV列表中
 			agvList.push_front(ptr->GetId());
 		}
@@ -1611,55 +1618,56 @@ void Service::OrderManage()
 
 std::list<int> Service::GetFreeAGVList(const OrderMap& _map)
 {
-	std::list<int> list;
+	std::list<int> list;	/*!< 可分配订单的AGV列表 */
 
-	for (AgvArray::iterator it = m_mapAGVs.begin(); it != m_mapAGVs.end(); ++it)
+ 	for (AgvArray::iterator it = m_mapAGVs.begin(); it != m_mapAGVs.end(); ++it)
 	{
-		AgvAttr attr = it->second->GetAttribute();
-		AgvMode mode = attr.GetMode();
+		AgvAttr attr = it->second->GetAttribute();		/*!< AGV属性 */
+		AgvMode mode = attr.GetMode();	/*!< AGV模式*/
 
 		if (mode == AgvMode::Mode_Hand)
-		{
+		{// AGV为手动模式不可以分配订单
 			continue;
 		}
 
 		if (HaveOrder(_map, it->second->GetId()))
-		{
+		{// AGV已经有订单,不可以再分配订单
 			continue;
 		}
 
-		rfid_t cur = attr.GetCurLocation();
+		rfid_t cur = attr.GetCurLocation();		/*!< AGV当前RFID地标卡编号*/
 
-		bool head = false;
+		bool head = false;	/*!< 待机站首地址标识 */
 
 		if (IsInRestQueue(cur))
-		{
+		{// 如果存在待机队列
 			if (IsRestQueueHead(cur) == false)
-			{
+			{// AGV不在队列的首位，不可以再分配订单
 				continue;
 			}
 
 			head = true;
 		}
 
-		AgvBattery power = attr.GetBattery();
+		AgvBattery power = attr.GetBattery();	/*!< AGV电量 */
 
 		if (power == AgvBattery::Power_Off)
-		{
+		{// AGV未连接，不可分配订单
 			continue;
 		}
 		else if (power < AgvBattery::Power_Low)
-		{// 电量不足
+		{// 电量不足，不可分配订单
 			ReturnControl(*it->second);
 		}
 
 		if (m_mapRestQueues.size() > 0 && head == false)
-		{
+		{// 非待机首位的AGV，返回待机队列等待订单分配
 			ReturnControl(*it->second);
 
 			continue;
 		}
 
+		// 存入可分配订单列表
 		list.push_back(it->second->GetId());
 	}
 
