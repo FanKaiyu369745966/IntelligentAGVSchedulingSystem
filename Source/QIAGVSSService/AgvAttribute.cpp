@@ -331,7 +331,7 @@ QString AgvAttribute::GetStatusInfo() const
 		_str = QString::fromLocal8Bit("寻磁中");
 		break;
 	case AgvStatus::Sta_ObsDown:
-		_str = QString::fromLocal8Bit("避障加速行驶");
+		_str = QString::fromLocal8Bit("避障减速行驶");
 		break;
 	case AgvStatus::Sta_Traffic:
 		_str = QString::fromLocal8Bit("交通管制中");
