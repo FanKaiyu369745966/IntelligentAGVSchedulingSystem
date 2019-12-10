@@ -47,6 +47,8 @@ void MainWindow::initWindow()
 	QString fontType = screem.get("Address:0", "FontType").toString();
 	QString fontSize = screem.get("Address:0", "FontSize").toString();
 	QString maxLine = screem.get("Address:0", "MaxLine").toString();
+	QString x = screem.get("Address:0", "X").toString();
+	QString y = screem.get("Address:0", "Y").toString();
 
 	QJsonObject	jsonConfig, jsonDBAttr, jsonSrvAttr, jsonComAttr, jsonLedAttr;
 	jsonDBAttr.insert("Host", serverName);
@@ -73,6 +75,8 @@ void MainWindow::initWindow()
 	jsonLedAttr.insert("FontType", fontType);
 	jsonLedAttr.insert("FontSize", fontSize.toInt());
 	jsonLedAttr.insert("MaxLine", maxLine.toInt());
+	jsonLedAttr.insert("X", x.toInt());
+	jsonLedAttr.insert("Y", y.toInt());
 
 	jsonConfig.insert("AGVDatabase", jsonDBAttr);
 	jsonConfig.insert("Server", jsonSrvAttr);

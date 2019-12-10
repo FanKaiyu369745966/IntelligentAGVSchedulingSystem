@@ -232,8 +232,10 @@ bool ServiceBase::LoadLedConfig(const QJsonObject& obj)
 	QString type = obj.value("FontType").toString();
 	int size = obj.value("FontSize").toInt();
 	int maxLine = obj.value("MaxLine").toInt();
+	int x = obj.value("X").toInt();
+	int y = obj.value("Y").toInt();
 
-	m_led = make_shared<EQLed>(id, width, height, maxLine, type, size);
+	m_led = make_shared<EQLed>(id, x, y, width, height, maxLine, type, size);
 
 	return true;
 }

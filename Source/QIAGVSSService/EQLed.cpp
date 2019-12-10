@@ -10,28 +10,13 @@ EQLed::EQLed()
 	, m_bSent(true)
 	, m_strFont(QString::fromLocal8Bit("宋体"))
 	, m_nSize(0)
+	, m_x(0)
+	, m_y(0)
 {
-	QByteArray type = m_strFont.toLocal8Bit();
-	m_font = new char[type.size() + 1];
-
-	memset(m_font, 0, type.size() + 1);
-
-	memcpy(m_font, type.constData(), type.size());
-
-	m_fontInfo.bFontBold = false;
-	m_fontInfo.bFontItaic = false;
-	m_fontInfo.bFontUnderline = false;
-	m_fontInfo.colorFont = 0xFFFF;
-	m_fontInfo.iFontSize = m_nSize;
-	m_fontInfo.strFontName = m_font;
-	m_fontInfo.iAlignStyle = 0;
-	m_fontInfo.iVAlignerStyle = 1;
-	m_fontInfo.iRowSpace = 0;
-
-	return;
+	Initialize();
 }
 
-EQLed::EQLed(const unsigned short& id, const unsigned short& width, const unsigned short& height, const int& maxLine, const QString& font, const int& size)
+EQLed::EQLed(const unsigned short& id, const int& x, const int& y, const unsigned short& width, const unsigned short& height, const int& maxLine, const QString& font, const int& size)
 	: LedBase(id, width, height)
 	, m_lib("EQ2008_Dll")
 	, m_bConnect(false)
@@ -39,23 +24,10 @@ EQLed::EQLed(const unsigned short& id, const unsigned short& width, const unsign
 	, m_bSent(true)
 	, m_strFont(font)
 	, m_nSize(size)
+	, m_x(x)
+	, m_y(y)
 {
-	QByteArray type = m_strFont.toLocal8Bit();
-	m_font = new char[type.size() + 1];
-
-	memset(m_font, 0, type.size() + 1);
-
-	memcpy(m_font, type.constData(), type.size());
-
-	m_fontInfo.bFontBold = false;
-	m_fontInfo.bFontItaic = false;
-	m_fontInfo.bFontUnderline = false;
-	m_fontInfo.colorFont = 0xFFFF;
-	m_fontInfo.iFontSize = m_nSize;
-	m_fontInfo.strFontName = m_font;
-	m_fontInfo.iAlignStyle = 0;
-	m_fontInfo.iVAlignerStyle = 1;
-	m_fontInfo.iRowSpace = 0;
+	Initialize();
 }
 
 EQLed::~EQLed()
@@ -144,6 +116,28 @@ bool EQLed::SetScreenLight(int nLightDegreen)
 	m_bConnect = User_SetScreenLight(m_usId, nLightDegreen);
 
 	return m_bConnect;
+}
+
+void EQLed::Initialize()
+{
+	QByteArray type = m_strFont.toLocal8Bit();
+	m_font = new char[type.size() + 1];
+
+	memset(m_font, 0, type.size() + 1);
+
+	memcpy(m_font, type.constData(), type.size());
+
+	m_fontInfo.bFontBold = false;
+	m_fontInfo.bFontItaic = false;
+	m_fontInfo.bFontUnderline = false;
+	m_fontInfo.colorFont = 0xFFFF;
+	m_fontInfo.iFontSize = m_nSize;
+	m_fontInfo.strFontName = m_font;
+	m_fontInfo.iAlignStyle = 0;
+	m_fontInfo.iVAlignerStyle = 0;
+	m_fontInfo.iRowSpace = 0;
+
+	return;
 }
 
 bool EQLed::SetText(const int& key, const QString& value)
@@ -268,6 +262,15 @@ bool EQLed::SendText(const QString& str)
 		return true;
 	}
 
+	if (m_usWidth == 0 || m_usHeight == 0)
+	{
+		m_bSent = true;
+
+		Disconnect();
+
+		return true;
+	}
+
 	char* ptr = new char[str.toLocal8Bit().size() + 1];
 
 	memset(ptr, 0, str.toLocal8Bit().size() + 1);
@@ -275,7 +278,7 @@ bool EQLed::SendText(const QString& str)
 	memcpy(ptr, str.toLocal8Bit().data(), str.toLocal8Bit().size());
 
 	//发送文本
-	m_bConnect = User_RealtimeSendText(m_usId, 0, 0, m_usWidth, m_usHeight, ptr, &m_fontInfo);
+	m_bConnect = User_RealtimeSendText(m_usId, m_x, m_y, m_usWidth, m_usHeight, ptr, &m_fontInfo);
 
 	delete[] ptr;
 
