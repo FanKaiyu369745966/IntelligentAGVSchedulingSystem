@@ -200,7 +200,7 @@ signals:
 	*/
 	void signalUpdate(const unsigned short&);
 
-	bool signalWriteData(const char* data, const qint64& maxSize) const;
+	bool signalWriteData(QByteArray) const;
 
 public slots:
 	/*!

@@ -16,7 +16,7 @@ AgvBase::AgvBase(const shared_ptr<AgvType>& type, const id_t& id, const bool& bC
 	QObject::connect(&m_conn, &SlaveConnect::signalConnected, this, &AgvBase::slotConnected);
 	QObject::connect(&m_conn, &SlaveConnect::signalConnectionBreak, this, &AgvBase::slotConnectionBreak);
 	QObject::connect(&m_conn, &SlaveConnect::signalProcess, this, &AgvBase::slotProcess);
-	QObject::connect(this, &AgvBase::signalWriteData, &m_conn, static_cast<bool (SlaveConnect::*)(const char*, const qint64&) const>(&SlaveConnect::WriteData));
+	QObject::connect(this, &AgvBase::signalWriteData, &m_conn, static_cast<bool (SlaveConnect::*)(QByteArray) const>(&SlaveConnect::WriteData));
 
 	moveToThread(&m_thread);
 	m_thread.start();
@@ -237,8 +237,6 @@ void AgvBase::ProcessPacketPlc(const ByteArrayList& list)
 			continue;
 		}
 
-		index += 2;
-
 		// 获取功能
 		unsigned char func = *(data + index++) & 0xFF;	/*!< 功能 */
 
@@ -247,6 +245,34 @@ void AgvBase::ProcessPacketPlc(const ByteArrayList& list)
 		case AgvCmdFunc::Func_Heartbeat:
 		{
 			AgvAttr attr;
+
+			// 模式
+			for (int i = 0; i < sizeof(AgvAttr::mode_t); ++i, ++index)
+			{
+				unsigned char tmp = *(data + index);
+				attr.m_mode |= (tmp << 8 * (sizeof(AgvAttr::mode_t) - i - 1));
+			}
+
+			// 状态
+			for (int i = 0; i < sizeof(AgvAttr::status_t); ++i, ++index)
+			{
+				unsigned char tmp = *(data + index);
+				attr.m_status |= (tmp << 8 * (sizeof(AgvAttr::status_t) - i - 1));
+			}
+
+			// 速度
+			for (int i = 0; i < sizeof(AgvAttr::speed_t); ++i, ++index)
+			{
+				unsigned char tmp = *(data + index);
+				attr.m_speed |= (tmp << 8 * (sizeof(AgvAttr::speed_t) - i - 1));
+			}
+
+			// 电量
+			for (int i = 0; i < sizeof(AgvAttr::battery_t); ++i, ++index)
+			{
+				unsigned char tmp = *(data + index);
+				attr.m_battery |= (tmp << 8 * (sizeof(AgvAttr::battery_t) - i - 1));
+			}
 
 			// 当前坐标
 			for (int i = 0; i < sizeof(rfid_t); ++i, ++index)
@@ -262,46 +288,11 @@ void AgvBase::ProcessPacketPlc(const ByteArrayList& list)
 				attr.m_endLocat |= (tmp << 8 * (sizeof(rfid_t) - i - 1));
 			}
 
-			// 状态
-			for (int i = 0; i < sizeof(AgvAttr::status_t); ++i, ++index)
-			{
-				unsigned char tmp = *(data + index);
-				attr.m_status |= (tmp << 8 * (sizeof(AgvAttr::status_t) - i - 1));
-			}
-
-			// 电量
-			for (int i = 0; i < sizeof(AgvAttr::battery_t); ++i, ++index)
-			{
-				unsigned char tmp = *(data + index);
-				attr.m_battery |= (tmp << 8 * (sizeof(AgvAttr::battery_t) - i - 1));
-			}
-
-			// 速度
-			for (int i = 0; i < sizeof(AgvAttr::speed_t); ++i, ++index)
-			{
-				unsigned char tmp = *(data + index);
-				attr.m_speed |= (tmp << 8 * (sizeof(AgvAttr::speed_t) - i - 1));
-			}
-
 			// 载货数量
 			for (int i = 0; i < sizeof(AgvAttr::cargo_t); ++i, ++index)
 			{
 				unsigned char tmp = *(data + index);
 				attr.m_cargo |= (tmp << 8 * (sizeof(AgvAttr::cargo_t) - i - 1));
-			}
-
-			// 动作信息
-			for (int i = 0; i < 2; ++i, ++index)
-			{
-				unsigned char tmp = *(data + index);
-				attr.m_action |= (tmp << 8 * (2 - i - 1));
-			}
-
-			// 动作状态
-			for (int i = 0; i < sizeof(AgvAttr::execute_t); ++i, ++index)
-			{
-				unsigned char tmp = *(data + index);
-				attr.m_execute |= (tmp << 8 * (sizeof(AgvAttr::execute_t) - i - 1));
 			}
 
 			// 异常信息
@@ -311,11 +302,18 @@ void AgvBase::ProcessPacketPlc(const ByteArrayList& list)
 				attr.m_error |= (tmp << 8 * (sizeof(AgvAttr::error_t) - i - 1));
 			}
 
-			// 模式
-			for (int i = 0; i < sizeof(AgvAttr::mode_t); ++i, ++index)
+			// 动作信息
+			for (int i = 0; i < sizeof(AgvAttr::action_t); ++i, ++index)
 			{
 				unsigned char tmp = *(data + index);
-				attr.m_mode |= (tmp << 8 * (sizeof(AgvAttr::mode_t) - i - 1));
+				attr.m_action |= (tmp << 8 * (sizeof(AgvAttr::action_t) - i - 1));
+			}
+
+			// 动作状态
+			for (int i = 0; i < sizeof(AgvAttr::execute_t); ++i, ++index)
+			{
+				unsigned char tmp = *(data + index);
+				attr.m_execute |= (tmp << 8 * (sizeof(AgvAttr::execute_t) - i - 1));
 			}
 
 			if (m_attribute.Update(attr))
@@ -326,15 +324,23 @@ void AgvBase::ProcessPacketPlc(const ByteArrayList& list)
 			break;
 		}
 		case AgvCmdFunc::Func_Move:
-		{// 移动
+		{
 			break;
 		}
-		case static_cast<AgvCmdFunc>(0x3F) :
-		{// 交通管制
+		case AgvCmdFunc::Func_Action:
+		{
 			break;
 		}
-		case static_cast<AgvCmdFunc>(0x4F) :
-		{// 动作
+		case AgvCmdFunc::Func_Traffic:
+		{
+			break;
+		}
+		case AgvCmdFunc::Func_Status:
+		{
+			break;
+		}
+		case AgvCmdFunc::Func_Speed:
+		{
 			break;
 		}
 		default:
@@ -385,7 +391,7 @@ void AgvBase::slotSendPacket()
 
 	for (ByteArrayList::const_iterator it = m_listSend.begin(); it != m_listSend.end(); it = m_listSend.erase(it))
 	{
-		emit signalWriteData(it->data(), it->size());
+		emit signalWriteData(it->toQByteAarray());
 
 		QThread::msleep(100);
 	}
@@ -761,17 +767,77 @@ void AgvBase::HeartbeatStm32()
 void AgvBase::HeartbeatPlc()
 {
 	int index = 0;
-	int len = 16;
+	int len = 1 + sizeof(AgvAttr::mode_t) + sizeof(AgvAttr::status_t) + sizeof(AgvAttr::speed_t) + sizeof(AgvAttr::battery_t)
+		+ sizeof(rfid_t) + sizeof(rfid_t) + sizeof(AgvAttr::cargo_t) + sizeof(AgvAttr::error_t) + sizeof(AgvAttr::action_t)
+		+ sizeof(AgvAttr::execute_t);
 
 	std::unique_ptr<unsigned char[]> command(new unsigned char[len]);
 
 	memset(command.get(), 0, len);
 
-	// 存储报文长度
-	command[index++] = (len >> 8) & 0xFF;
-	command[index++] = len & 0xFF;
-
 	command[index++] = static_cast<unsigned char>(AgvCmdFunc::Func_Heartbeat);
+
+	// 模式
+	for (unsigned int i = sizeof(AgvAttr::mode_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_mode >> 8 * (i - 1)) & 0xFF);
+	}
+
+	// 状态
+	for (unsigned int i = sizeof(AgvAttr::status_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_status >> 8 * (i - 1)) & 0xFF);
+	}
+
+	// 速度
+	for (unsigned int i = sizeof(AgvAttr::speed_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_speed >> 8 * (i - 1)) & 0xFF);
+	}
+
+	// 电量
+	for (unsigned int i = sizeof(AgvAttr::battery_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_battery >> 8 * (i - 1)) & 0xFF);
+	}
+
+	// 当前RFID
+	for (unsigned int i = sizeof(rfid_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_curLocat >> 8 * (i - 1)) & 0xFF);
+	}
+
+	//  终点RFID
+	for (unsigned int i = sizeof(rfid_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_endLocat >> 8 * (i - 1)) & 0xFF);
+	}
+
+	//  载货数量
+	for (unsigned int i = sizeof(AgvAttr::cargo_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_cargo >> 8 * (i - 1)) & 0xFF);
+	}
+
+	// 异常信息
+	for (unsigned int i = sizeof(AgvAttr::error_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_error >> 8 * (i - 1)) & 0xFF);
+	}
+
+	// 动作信息
+	for (unsigned int i = sizeof(AgvAttr::action_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_action >> 8 * (i - 1)) & 0xFF);
+	}
+
+	// 动作状态
+	for (unsigned int i = sizeof(AgvAttr::execute_t); i > 0; --i)
+	{
+		command[index++] = static_cast<unsigned char>((m_attribute.m_execute >> 8 * (i - 1)) & 0xFF);
+	}
+
+	assert(len == index);
 
 	SendData(command.get(), len);
 
@@ -809,13 +875,15 @@ CmdError AgvBase::MoveStm32(const rfid_t& location)
 CmdError AgvBase::MovePlc(const rfid_t& location)
 {
 	int index = 0;
-	int len = 16;
+	int len = 13;
 
 	std::unique_ptr<unsigned char[]> command(new unsigned char[len]);
 
 	memset(command.get(), 0, len);
 
 	command[index++] = static_cast<char>(AgvCmdFunc::Func_Move);
+
+	index += 4;
 
 	// 当前坐标
 	for (unsigned int i = sizeof(rfid_t); i > 0; --i)
@@ -896,13 +964,15 @@ CmdError AgvBase::ActionControlPlc(const AgvAction& action)
 	AgvAttr::action_t act = static_cast<AgvAttr::action_t>(action);
 
 	int index = 0;
-	int len = 16;
+	int len = 13;
 
 	std::unique_ptr<unsigned char[]> command(new unsigned char[len]);
 
 	memset(command.get(), 0, len);
 
-	command[index++] = 0x4F;
+	command[index++] = static_cast<char>(AgvCmdFunc::Func_Action);
+
+	index += 4;
 
 	// 当前RFID
 	for (unsigned int i = sizeof(rfid_t); i > 0; --i)
@@ -910,10 +980,10 @@ CmdError AgvBase::ActionControlPlc(const AgvAction& action)
 		command[index++] = static_cast<unsigned char>((m_attribute.m_curLocat >> 8 * (i - 1)) & 0xFF);
 	}
 
-	index += 6;
+	index += 4;
 
 	// 动作
-	for (unsigned int i = 2; i > 0; --i)
+	for (unsigned int i = sizeof(AgvAttr::action_t); i > 0; --i)
 	{
 		command[index++] = static_cast<unsigned char>((act >> 8 * (i - 1)) & 0xFF);
 	}
@@ -973,13 +1043,15 @@ CmdError AgvBase::TrafficControlPlc(const unsigned char& cmd)
 {
 	// 合成指令
 	int index = 0;
-	int len = 16;
+	int len = 13;
 
 	std::unique_ptr<unsigned char[]> command(new unsigned char[len]);
 
 	memset(command.get(), 0, len);
 
-	command[index++] = 0x3F;
+	command[index++] = static_cast<char>(AgvCmdFunc::Func_Traffic);
+
+	index += 4;
 
 	// 当前RFID
 	for (unsigned int i = sizeof(rfid_t); i > 0; --i)
@@ -994,25 +1066,25 @@ CmdError AgvBase::TrafficControlPlc(const unsigned char& cmd)
 
 CmdError AgvBase::SentCommand(const unsigned char* data, const int& maxSize)
 {
-	if (m_attribute.GetMode() != AgvMode::Mode_Auto)
-	{
-		return CmdError::Cmd_ModeError;
-	}
+	//if (m_attribute.GetMode() != AgvMode::Mode_Auto)
+	//{
+	//	return CmdError::Cmd_ModeError;
+	//}
 
-	if (m_attribute.m_battery <= static_cast<AgvAttr::battery_t>(AgvBattery::Power_Off))
-	{
-		return CmdError::Cmd_PowerError;
-	}
+	//if (m_attribute.m_battery <= static_cast<AgvAttr::battery_t>(AgvBattery::Power_Off))
+	//{
+	//	return CmdError::Cmd_PowerError;
+	//}
 
 	return SendData(data, maxSize);
 }
 
 CmdError AgvBase::SendData(const unsigned char* data, const int& maxSize)
 {
-	if (m_conn.IsConnected() == false)
-	{
-		return CmdError::Cmd_NetError;
-	}
+	//if (m_conn.IsConnected() == false)
+	//{
+	//	return CmdError::Cmd_NetError;
+	//}
 
 	int index = 0;
 	int len = sizeof(id_t) + maxSize;
