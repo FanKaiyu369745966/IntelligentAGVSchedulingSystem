@@ -84,42 +84,42 @@ void Service::Exit()
 		return;
 	}
 
-	std::chrono::system_clock::time_point tp = std::chrono::system_clock::now();
-	time_t tt = std::chrono::system_clock::to_time_t(tp);
-	tm* t = localtime(&tt);
+	//std::chrono::system_clock::time_point tp = std::chrono::system_clock::now();
+	//time_t tt = std::chrono::system_clock::to_time_t(tp);
+	//tm* t = localtime(&tt);
 
-	QString wday;
+	//QString wday;
 
-	switch (t->tm_wday)
-	{
-	case 1:
-		wday = QString::QString::fromLocal8Bit("一");
-		break;
-	case 2:
-		wday = QString::QString::fromLocal8Bit("二");
-		break;
-	case 3:
-		wday = QString::QString::fromLocal8Bit("三");
-		break;
-	case 4:
-		wday = QString::QString::fromLocal8Bit("四");
-		break;
-	case 5:
-		wday = QString::QString::fromLocal8Bit("五");
-		break;
-	case 6:
-		wday = QString::QString::fromLocal8Bit("六");
-		break;
-	case 0:
-		wday = QString::QString::fromLocal8Bit("日");
-		break;
-	}
+	//switch (t->tm_wday)
+	//{
+	//case 1:
+	//	wday = QString::QString::fromLocal8Bit("一");
+	//	break;
+	//case 2:
+	//	wday = QString::QString::fromLocal8Bit("二");
+	//	break;
+	//case 3:
+	//	wday = QString::QString::fromLocal8Bit("三");
+	//	break;
+	//case 4:
+	//	wday = QString::QString::fromLocal8Bit("四");
+	//	break;
+	//case 5:
+	//	wday = QString::QString::fromLocal8Bit("五");
+	//	break;
+	//case 6:
+	//	wday = QString::QString::fromLocal8Bit("六");
+	//	break;
+	//case 0:
+	//	wday = QString::QString::fromLocal8Bit("日");
+	//	break;
+	//}
 
-	m_led->SetText(98, QString::fromLocal8Bit("   %1年%2月%3日 星期%4")
-		.arg(t->tm_year + 1900, 4, 10, QLatin1Char(' '))
-		.arg(t->tm_mon + 1, 2, 10, QLatin1Char(' '))
-		.arg(t->tm_mday, 2, 10, QLatin1Char(' '))
-		.arg(wday));
+	//m_led->SetText(98, QString::fromLocal8Bit("   %1年%2月%3日 星期%4")
+	//	.arg(t->tm_year + 1900, 4, 10, QLatin1Char(' '))
+	//	.arg(t->tm_mon + 1, 2, 10, QLatin1Char(' '))
+	//	.arg(t->tm_mday, 2, 10, QLatin1Char(' '))
+	//	.arg(wday));
 
 	return;
 }
@@ -269,23 +269,23 @@ bool Service::Open()
 
 	//m_led.CloseScreen();
 
-	m_led->SetText(0, QString::fromLocal8Bit("          欢迎莅临"));
-	m_led->SetText(1, QString::fromLocal8Bit("   青岛三星精锻齿轮有限公司"));
-	m_led->SetText(2, QString::fromLocal8Bit("---------------------------"));
-	m_led->SetText(3, QString::fromLocal8Bit("AGV实时动态:"));
+	//m_led->SetText(0, QString::fromLocal8Bit("          欢迎莅临"));
+	//m_led->SetText(1, QString::fromLocal8Bit("   青岛三星精锻齿轮有限公司"));
+	//m_led->SetText(2, QString::fromLocal8Bit("---------------------------"));
+	m_led->SetText(0, QString::fromLocal8Bit("AGV实时动态:"));
 
-	if (m_led->GetValue(10).isNull() || m_led->GetValue(10).isEmpty())
+	if (m_led->GetValue(1).isNull() || m_led->GetValue(1).isEmpty())
 	{
-		m_led->SetText(10, QString::fromLocal8Bit(""));
+		m_led->SetText(1, QString::fromLocal8Bit(""));
 	}
 
-	if (m_led->GetValue(11).isNull() || m_led->GetValue(11).isEmpty())
+	if (m_led->GetValue(2).isNull() || m_led->GetValue(2).isEmpty())
 	{
-		m_led->SetText(11, QString::fromLocal8Bit(""));
+		m_led->SetText(2, QString::fromLocal8Bit(""));
 	}
-	m_led->SetText(97, QString::fromLocal8Bit("---------------------------"));
-	slotUpdateClock();
-	m_led->SetText(99, QString::fromLocal8Bit("      哈尔滨博乐恩承制"));
+	//m_led->SetText(97, QString::fromLocal8Bit("---------------------------"));
+	//slotUpdateClock();
+	//m_led->SetText(99, QString::fromLocal8Bit("      哈尔滨博乐恩承制"));
 
 	m_clock.start();
 
@@ -1620,7 +1620,7 @@ std::list<int> Service::GetFreeAGVList(const OrderMap& _map)
 {
 	std::list<int> list;	/*!< 可分配订单的AGV列表 */
 
- 	for (AgvArray::iterator it = m_mapAGVs.begin(); it != m_mapAGVs.end(); ++it)
+	for (AgvArray::iterator it = m_mapAGVs.begin(); it != m_mapAGVs.end(); ++it)
 	{
 		AgvAttr attr = it->second->GetAttribute();		/*!< AGV属性 */
 		AgvMode mode = attr.GetMode();	/*!< AGV模式*/
@@ -2066,45 +2066,45 @@ void Service::slotUpdateClock()
 		return;
 	}
 
-	std::chrono::system_clock::time_point tp = std::chrono::system_clock::now();
-	time_t tt = std::chrono::system_clock::to_time_t(tp);
-	tm* t = localtime(&tt);
+	//std::chrono::system_clock::time_point tp = std::chrono::system_clock::now();
+	//time_t tt = std::chrono::system_clock::to_time_t(tp);
+	//tm* t = localtime(&tt);
 
-	QString wday;
+	//QString wday;
 
-	switch (t->tm_wday)
-	{
-	case 1:
-		wday = QString::QString::fromLocal8Bit("一");
-		break;
-	case 2:
-		wday = QString::QString::fromLocal8Bit("二");
-		break;
-	case 3:
-		wday = QString::QString::fromLocal8Bit("三");
-		break;
-	case 4:
-		wday = QString::QString::fromLocal8Bit("四");
-		break;
-	case 5:
-		wday = QString::QString::fromLocal8Bit("五");
-		break;
-	case 6:
-		wday = QString::QString::fromLocal8Bit("六");
-		break;
-	case 0:
-		wday = QString::QString::fromLocal8Bit("日");
-		break;
-	}
+	//switch (t->tm_wday)
+	//{
+	//case 1:
+	//	wday = QString::QString::fromLocal8Bit("一");
+	//	break;
+	//case 2:
+	//	wday = QString::QString::fromLocal8Bit("二");
+	//	break;
+	//case 3:
+	//	wday = QString::QString::fromLocal8Bit("三");
+	//	break;
+	//case 4:
+	//	wday = QString::QString::fromLocal8Bit("四");
+	//	break;
+	//case 5:
+	//	wday = QString::QString::fromLocal8Bit("五");
+	//	break;
+	//case 6:
+	//	wday = QString::QString::fromLocal8Bit("六");
+	//	break;
+	//case 0:
+	//	wday = QString::QString::fromLocal8Bit("日");
+	//	break;
+	//}
 
-	m_led->SetText(98, QString::fromLocal8Bit(" %1-%2-%3 星期%4 %5:%6:%7")
-		.arg(t->tm_year + 1900, 4, 10, QLatin1Char('0'))
-		.arg(t->tm_mon + 1, 2, 10, QLatin1Char('0'))
-		.arg(t->tm_mday, 2, 10, QLatin1Char('0'))
-		.arg(wday)
-		.arg(t->tm_hour, 2, 10, QLatin1Char('0'))
-		.arg(t->tm_min, 2, 10, QLatin1Char('0'))
-		.arg(t->tm_sec, 2, 10, QLatin1Char('0')));
+	//m_led->SetText(98, QString::fromLocal8Bit(" %1-%2-%3 星期%4 %5:%6:%7")
+	//	.arg(t->tm_year + 1900, 4, 10, QLatin1Char('0'))
+	//	.arg(t->tm_mon + 1, 2, 10, QLatin1Char('0'))
+	//	.arg(t->tm_mday, 2, 10, QLatin1Char('0'))
+	//	.arg(wday)
+	//	.arg(t->tm_hour, 2, 10, QLatin1Char('0'))
+	//	.arg(t->tm_min, 2, 10, QLatin1Char('0'))
+	//	.arg(t->tm_sec, 2, 10, QLatin1Char('0')));
 
 	m_led->SendText();
 
@@ -2131,7 +2131,7 @@ void Service::slotUpdateAGVStatus(const unsigned short& id)
 	{
 		text = QString::fromLocal8Bit("AGV%1未连接").arg(id);
 
-		m_led->SetText(9 + id, text);
+		m_led->SetText(0 + id, text);
 
 		return;
 	}
@@ -2181,7 +2181,7 @@ void Service::slotUpdateAGVStatus(const unsigned short& id)
 		text = QString::fromLocal8Bit("AGV%1已连接").arg(id);
 	}
 
-	m_led->SetText(9 + id, text);
+	m_led->SetText(0 + id, text);
 
 	return;
 }

@@ -29,7 +29,7 @@ class EQLed :
 {
 public:
 	EQLed();
-	explicit EQLed(const unsigned short&, const unsigned short&, const unsigned short&, const int&, const QString&, const int&);
+	explicit EQLed(const unsigned short&, const int& x, const int& y, const unsigned short&, const unsigned short&, const int&, const QString&, const int&);
 	~EQLed();
 private:
 	QLibrary m_lib;
@@ -90,6 +90,10 @@ private:
 	int m_nSize;
 	User_FontSet m_fontInfo;
 	char* m_font;
+	int m_x;
+	int m_y;
+private:
+	void Initialize();
 public:
 	bool SetText(const int& key, const QString& value);
 	bool ClearText(const int& key);
