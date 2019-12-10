@@ -493,7 +493,7 @@ void Service::RestStationControl(const RestStation& rester)
 			break;
 		}
 
-		rester.GetNextLock(rfid->GetId());
+		rfid = GetRFIDPtr(rester.GetNextLock(rfid->GetId()));
 	}
 
 	return;
@@ -1817,7 +1817,7 @@ void Service::slotNewConnection()
 
 		if (ConnectAgv(socket))
 		{
-			return;
+			continue;
 		}
 
 		//socket->close();

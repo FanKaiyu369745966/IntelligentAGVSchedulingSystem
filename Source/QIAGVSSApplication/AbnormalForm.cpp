@@ -23,7 +23,7 @@ AbnormalForm::~AbnormalForm()
 
 void AbnormalForm::onUpdateModel()
 {
-	m_model->setQuery(QString("SELECT TOP(100) * FROM AGVDB_INFO_ABNORMAL WHERE abnormal_state!=3"), m_db);
+	m_model->setQuery(QString("SELECT * FROM AGVDB_INFO_ABNORMAL WHERE abnormal_state!=3"), m_db);
 
 	// 强制获取整个数据集,默认256
 	while (m_model->canFetchMore())
