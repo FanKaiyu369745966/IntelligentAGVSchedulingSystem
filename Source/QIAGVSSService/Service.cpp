@@ -1246,6 +1246,11 @@ bool Service::ExecuteTask(const TaskBase& task)
 		return UpdateTask(task.m_task, TASK_STA_FINISH);
 	}
 
+	if (task.m_status == TASK_STA_FINISH)
+	{// 已经执行过的任务
+		return true;
+	}
+
 	WorkerPtr worker = task.m_target; /*!< 工作站指针 */
 
 	if (worker == nullptr)
