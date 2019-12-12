@@ -111,6 +111,7 @@ protected:
 	id_t m_id;									/*!< 编号 */
 
 protected:
+	QByteArray m_byarrBuffer;	/*!< 接收下位机上传的数据的缓存区 */
 	ByteArrayList m_listSend;					/*!< 待发送的数据列表 */
 	QThread m_thread;							/*!< 报文发送线程 */
 	QTimer m_timer;
@@ -206,7 +207,7 @@ public slots:
 	/*!
 	 * @brief 当有数据需要处理时触发的槽函数
 	*/
-	void slotProcess();
+	void slotProcess(QByteArray);
 
 	/*!
 	 * @brief 连接下位机成功时触发的槽函数

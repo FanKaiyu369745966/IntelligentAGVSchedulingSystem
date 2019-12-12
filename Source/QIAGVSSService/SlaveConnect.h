@@ -35,9 +35,6 @@ protected:
 	quint16 m_usLocalPort;		/*!< 连接下位机时绑定的本地端口 */
 
 protected:
-	QByteArray m_byarrBuffer;	/*!< 接收下位机上传的数据的缓存区 */
-
-protected:
 	/*!
 	 * @brief 初始化下位机连接
 	 * @param const bool& 模式标识:为true时客户端以客户端模式运行,为false时客户端以服务端模式运行
@@ -72,8 +69,6 @@ public:
 	*/
 	bool Connect(QTcpSocket* socket);
 
-	QByteArray& GetBuffer() { return m_byarrBuffer; }
-
 protected:
 	/*!
 	 * @breif 重新连接下位机
@@ -94,7 +89,7 @@ signals:
 	/*!
 	 * @brief 当存在需要处理的数据时发出的信号
 	*/
-	void signalProcess();
+	void signalProcess(QByteArray);
 
 public slots:
 	/*!

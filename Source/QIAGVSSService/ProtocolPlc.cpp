@@ -55,7 +55,8 @@ ByteArray ProtocolPlc::Create(const unsigned char* data, const int& maxSize) con
 
 	//qDebug() << _debug << endl;
 
-	return Encoding(source.get(), index);
+	//return Encoding(source.get(), index);
+	return ByteArray(source.get(), index);
 }
 
 ByteArrayList ProtocolPlc::Process(ByteArray& data) const

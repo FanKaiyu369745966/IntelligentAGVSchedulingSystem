@@ -351,14 +351,13 @@ void AgvBase::ProcessPacketPlc(const ByteArrayList& list)
 	return;
 }
 
-void AgvBase::slotProcess()
+void AgvBase::slotProcess(QByteArray data)
 {
-	QByteArray& data = m_conn.GetBuffer();
-
-	ByteArray bf(data);
-	data.clear();
+	m_byarrBuffer += data;
+	ByteArray bf(m_byarrBuffer);
+	m_byarrBuffer.clear();
 	ProcessPacket(m_pType->GetProtocol()->Process(bf));
-	data = bf.toQByteAarray();
+	m_byarrBuffer = bf.toQByteAarray();
 
 	return;
 }

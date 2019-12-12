@@ -1425,8 +1425,9 @@ OrderMap Service::GetOrder()
 
 	QString table("AGVDB_TASK_CURRENT");
 
-	QString sql = QString::fromLocal8Bit("select * from %1 order by [task_publish],[task_executer] DESC,[task_id]")
-		.arg(table);
+	QString sql = QString::fromLocal8Bit("select * from %1 where [task_status]!='%2' order by [task_publish],[task_executer] DESC,[task_id]")
+		.arg(table)
+		.arg(TASK_STA_FINISH);
 
 	if (query.exec(sql) == false)
 	{

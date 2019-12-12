@@ -440,9 +440,7 @@ void SlaveConnect::slotReadyRead()
 {
 	if (m_pSocket->isReadable())
 	{
-		m_byarrBuffer += m_pSocket->readAll();
-
-		emit signalProcess();
+		emit signalProcess(m_pSocket->readAll());
 	}
 
 	return;
