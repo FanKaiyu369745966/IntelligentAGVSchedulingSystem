@@ -316,6 +316,11 @@ void AgvBase::ProcessPacketPlc(const ByteArrayList& list)
 				attr.m_execute |= (tmp << 8 * (sizeof(AgvAttr::execute_t) - i - 1));
 			}
 
+			if (attr.m_curLocat == 0 && attr.GetMode() == AgvMode::Mode_Auto)
+			{
+				attr.m_curLocat = m_attribute.m_curLocat;
+			}
+
 			if (m_attribute.Update(attr))
 			{
 				emit signalUpdate(m_id);
