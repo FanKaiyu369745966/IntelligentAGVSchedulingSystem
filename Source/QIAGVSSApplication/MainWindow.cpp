@@ -95,15 +95,15 @@ void MainWindow::initWindow()
 
 	// 窗口标题栏
 	setWindowIcon(QIcon("./res/icon/sys.png"));
-	//setWindowTitle(QString::fromLocal8Bit("分布式智能AGV调度系统V3.0"));
-	setWindowTitle(QString::fromLocal8Bit("辉腾自动化集中控制系统V1.0"));
+	setWindowTitle(QString::fromLocal8Bit("分布式智能AGV调度系统V3.0"));
+	//setWindowTitle(QString::fromLocal8Bit("辉腾自动化集中控制系统V1.0"));
 	setWindowFlags(Qt::CustomizeWindowHint | Qt::Window | Qt::FramelessWindowHint);
 
 	TitleBarEx* pTitleBar = new TitleBarEx(this);
-	//pTitleBar->setIcon("./res/icon/main.png");
+	pTitleBar->setIcon("./res/icon/main.png");
 	pTitleBar->setButtonType(MINI_MAX_BUTTON);
-	//pTitleBar->setTitle(QString::fromLocal8Bit("分布式智能AGV调度系统V3.0"));
-	pTitleBar->setTitle(QString::fromLocal8Bit("辉腾自动化集中控制系统V1.0"));
+	pTitleBar->setTitle(QString::fromLocal8Bit("分布式智能AGV调度系统V3.0"));
+	//pTitleBar->setTitle(QString::fromLocal8Bit("辉腾自动化集中控制系统V1.0"));
 	QObject::connect(pTitleBar, &TitleBarEx::windowClose, this, &MainWindow::onWindowClose); // 绑定信号槽
 
 
