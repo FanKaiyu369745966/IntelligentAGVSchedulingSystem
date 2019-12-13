@@ -190,8 +190,11 @@ bool Service::LoadConfig()
 	// 读取呼叫器配置
 	LoadZigbeeCaller();
 
-	// 读取待机队列
+	// 读取待机队列配置
 	LoadRestQueueConfig();
+
+	// 读取交通管制配置
+	LoadTrafficConfig();
 
 	return true;
 }
@@ -237,6 +240,9 @@ bool Service::LoadConfig(const QJsonDocument& doc)
 
 	// 读取待机队列
 	LoadRestQueueConfig(doc);
+
+	// 读取交通管制配置
+	LoadTrafficConfig(doc);
 
 	return true;
 }
@@ -390,14 +396,13 @@ void Service::TrafficControl(const TrafficPos& pos)
 	}
 
 	LocatArray arr = pos.GetCompareList();
-	if (TrafficCompare(ctrl, arr))
-	{
-		agv->TrafficPass();
-	}
-	else
+	if (TrafficCompare(ctrl, arr) == false)
 	{
 		agv->TrafficStop();
+		return;
 	}
+
+	agv->TrafficPass();
 
 	return;
 }
