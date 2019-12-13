@@ -31,8 +31,8 @@ void LoginForm::init()
 
 	ui->pushButtonTitle->setStyleSheet("QPushButton:!enabled{background:#31343B; font-size:18pt; font-family:Microsoft YaHei; color:#FFFFFF}");
 	ui->pushButtonTitle->setEnabled(false);
-	//ui->pushButtonTitle->setText(QString::fromLocal8Bit("辉腾自动化集中控制系统V1.0"));
-	ui->pushButtonTitle->setText(QString::fromLocal8Bit("AGV 调度系统"));
+	ui->pushButtonTitle->setText(QString::fromLocal8Bit("辉腾自动化集中控制系统V1.0"));
+	//ui->pushButtonTitle->setText(QString::fromLocal8Bit("AGV 调度系统"));
 
 	ui->lineEdit_userName->setText("");
 	ui->lineEdit_passwd->setText("");

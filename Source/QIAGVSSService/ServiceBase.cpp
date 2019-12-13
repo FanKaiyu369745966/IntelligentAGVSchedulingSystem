@@ -709,10 +709,10 @@ bool ServiceBase::LoadTrafficConfig()
 		QString key = "traffic_lock";
 		objValue.insert("Lock", QJsonDocument().fromJson(record.value(key).toString().toUtf8()).array());
 
-		key = "traffoc_compare";
+		key = "traffic_compare";
 		objValue.insert("Compare", QJsonDocument().fromJson(record.value(key).toString().toUtf8()).array());
 
-		key = "ID";
+		key = "traffic_id";
 		obj.insert(QString("%1").arg(record.value(key).toInt()), objValue);
 	}
 
@@ -776,23 +776,25 @@ bool ServiceBase::LoadTrafficConfig(const QJsonObject& obj)
 
 	QStringList listKeys = obj.keys();
 
+	//qDebug() << QJsonDocument(obj) << endl;
+
 	for (int i = 0; i < listKeys.size(); ++i)
 	{
 		QString	key = listKeys.at(i);
 		rfid_t id = static_cast<rfid_t>(key.toInt());
 
-		QJsonObject obj;
-		obj = obj.value(key).toObject();
+		QJsonObject attr;
+		attr = obj.value(key).toObject();
 
-		if (obj.isEmpty())
+		if (attr.isEmpty())
 		{
 			continue;
 		}
 
 		QJsonArray arrLock, arrCompare;
 
-		arrLock = obj.value("Lock").toArray();
-		arrCompare = obj.value("Compare").toArray();
+		arrLock = attr.value("Lock").toArray();
+		arrCompare = attr.value("Compare").toArray();
 
 		m_mapTraffics[id] = TrafficPosition(id);
 		m_mapTraffics[id].LoadLockList(arrLock);

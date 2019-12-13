@@ -88,11 +88,11 @@
   <RFID No="703" X="110" Y="-70" />
   <RFID No="704" X="150" Y="-70" />
   <RFID No="705" X="190" Y="-70" />
-  <Station No="1" Location="101" Name="托盘库" X="-40" Y="60" />
-  <Station No="2" Location="21" Name="毛坯库" X="-30" Y="0" />
-  <Station No="3" Location="22" Name="成品库" X="10" Y="0" />
-  <Station No="4" Location="201" Name="CNC上料口" X="10" Y="-270" />
-  <Station No="5" Location="211" Name="滚齿机下料口" X="50" Y="-270" />
+  <Station No="1" Location="101" Name="拣货点" X="-40" Y="60" />
+  <Station No="2" Location="21" Name="分盘机1" X="-30" Y="0" />
+  <Station No="3" Location="22" Name="分盘机2" X="10" Y="0" />
+  <Station No="4" Location="201" Name="卸货点1" X="10" Y="-270" />
+  <Station No="5" Location="211" Name="卸货点2" X="50" Y="-270" />
   <Station No="6" Location="221" Name="卸货点3" X="80" Y="-270" />
   <Station No="7" Location="231" Name="卸货点4" X="110" Y="-270" />
   <Station No="8" Location="241" Name="卸货点5" X="140" Y="-270" />
@@ -101,22 +101,41 @@
   <Rest No="3" Location="3" X="130" Y="0" />
   <Rest No="4" Location="4" X="170" Y="0" />
   <Rest No="5" Location="5" X="210" Y="0" />
-  <AGV No="2" Type="叉车AGV" Client="1" IP="192.168.1.201" Port="0" LocalIP="" LocalPort="0"/>
-  <AGV No="3" Type="叉车AGV" Client="1" IP="192.168.1.202" Port="0" LocalIP="" LocalPort="0"/>
-  <AGV No="4" Type="叉车AGV" Client="1" IP="192.168.1.203" Port="0" LocalIP="" LocalPort="0"/>
-  <AGV No="5" Type="叉车AGV" Client="1" IP="192.168.1.204" Port="0" LocalIP="" LocalPort="0"/>
-  <AGV No="6" Type="叉车AGV" Client="1" IP="192.168.1.205" Port="0" LocalIP="" LocalPort="0"/>
+  <AGV No="1" Type="叉车AGV" Client="1" IP="192.168.1.211" Port="0" LocalIP="" LocalPort="0"/>
+  <AGV No="2" Type="叉车AGV" Client="1" IP="192.168.1.212" Port="0" LocalIP="" LocalPort="0"/>
+  <AGV No="3" Type="叉车AGV" Client="1" IP="192.168.1.213" Port="0" LocalIP="" LocalPort="0"/>
+  <AGV No="4" Type="叉车AGV" Client="1" IP="192.168.1.214" Port="0" LocalIP="" LocalPort="0"/>
+  <AGV No="5" Type="叉车AGV" Client="1" IP="192.168.1.215" Port="0" LocalIP="" LocalPort="0"/>
   <AGVType Name="叉车AGV" Brand="哈尔滨博乐恩" Version="BLN-LD1000" MaxSpeed="48" MaxWeight="1000" Protocol="1">
     <Action No="1" Name="上料"/>
-	<Action No="2" Name="停靠"/>
-	<Action No="3" Name="下料"/>
-    <Action No="4" Name="结束"/>
+	<Action No="2" Name="下料"/>
   </AGVType>
-  <RestQueue No="1">
-	<Rester No="1"/>
-	<Rester No="2"/>
-	<Rester No="3"/>
-	<Rester No="4"/>
-	<Rester No="5"/>
-  </RestQueue>
+  <Traffic No="705"><Lock No="42"/><Lock No="606"/></Traffic>
+  <Traffic No="42"><Lock No="43"/><Lock No="605"/></Traffic>
+  <Traffic No="606"><Lock No="43"/><Lock No="605"/></Traffic>
+  <Traffic No="704"><Lock No="43"/><Lock No="605"/></Traffic>
+  <Traffic No="43"><Lock No="44"/><Lock No="604"/></Traffic>
+  <Traffic No="605"><Lock No="44"/><Lock No="604"/></Traffic>
+  <Traffic No="703"><Lock No="44"/><Lock No="604"/></Traffic>
+  <Traffic No="44"><Lock No="45"/><Lock No="603"/></Traffic>
+  <Traffic No="604"><Lock No="45"/><Lock No="603"/></Traffic>
+  <Traffic No="702"><Lock No="45"/><Lock No="603"/></Traffic>
+  <Traffic No="45"><Lock No="46"/><Lock No="602"/></Traffic>
+  <Traffic No="603"><Lock No="46"/><Lock No="602"/></Traffic>
+  <Traffic No="701"><Lock No="46"/><Lock No="602"/></Traffic>
+  <Traffic No="46"><Lock No="47"/><Lock No="601"/></Traffic>
+  <Traffic No="602"><Lock No="47"/><Lock No="601"/></Traffic>
+  <Traffic No="122"><Lock No="47"/><Lock No="601"/></Traffic>
+  <Traffic No="36"><Lock No="37"/><Lock No="610"/></Traffic>
+  <Traffic No="609"><Lock No="37"/><Lock No="610"/></Traffic>
+  <Traffic No="209"><Lock No="37"/><Lock No="610"/></Traffic>
+  <Traffic No="37"><Lock No="38"/><Lock No="611"/></Traffic>
+  <Traffic No="610"><Lock No="38"/><Lock No="611"/></Traffic>
+  <Traffic No="219"><Lock No="38"/><Lock No="611"/></Traffic>
+  <Traffic No="38"><Lock No="39"/><Lock No="612"/></Traffic>
+  <Traffic No="611"><Lock No="39"/><Lock No="612"/></Traffic>
+  <Traffic No="229"><Lock No="39"/><Lock No="612"/></Traffic>
+  <Traffic No="39"><Lock No="40"/><Lock No="613"/></Traffic>
+  <Traffic No="612"><Lock No="40"/><Lock No="613"/></Traffic>
+  <Traffic No="239"><Lock No="40"/><Lock No="613"/></Traffic>
 </Map>

@@ -1233,7 +1233,7 @@ bool MapForm::UpdateTraffic(const QDomElement& e)
 		}
 	}
 
-	strSql = QString("INSERT INTO AGVDB_INFO_TRAFFIC (traffic_id, traffic_lock,traffoc_compare) VALUES (%1, '%2','%3')")
+	strSql = QString("INSERT INTO AGVDB_INFO_TRAFFIC (traffic_id, traffic_lock,traffic_compare) VALUES (%1, '%2','%3')")
 		.arg(no).arg(QString(QJsonDocument(lockArray).toJson())).arg(QString(QJsonDocument(compareArray).toJson()));
 	query.exec(strSql);
 
@@ -1267,7 +1267,7 @@ bool MapForm::UpdateTraffic(const QJsonObject& obj)
 		lockArray = attr.value("Lock").toArray();
 		compareArray = attr.value("Compare").toArray();
 
-		strSql = QString("INSERT INTO AGVDB_INFO_TRAFFIC (traffic_id, traffic_lock,traffoc_compare) VALUES (%1, '%2','%3')")
+		strSql = QString("INSERT INTO AGVDB_INFO_TRAFFIC (traffic_id, traffic_lock,traffic_compare) VALUES (%1, '%2','%3')")
 			.arg(no).arg(QString(QJsonDocument(lockArray).toJson())).arg(QString(QJsonDocument(compareArray).toJson()));
 		query.exec(strSql);
 	}
